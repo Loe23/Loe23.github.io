@@ -13,7 +13,7 @@ Pipeline complet avec **Apache Airflow**, **Docker**, **Python** et **PostgreSQL
 
 🔗 [Voir le produit en vente](https://payhip.com/b/6Hb1V)
 
-![Rapport HTML](rapport_alertes.png)
+![Rapport HTML](rapport_alertes.png.jpg))
 
 ---
 
