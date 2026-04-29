@@ -9,7 +9,7 @@ Analyse des canaux marketing (Direct, Social, Paid Search, Email) avec respect d
 - Looker Studio (dashboard)
 
 ## Aperçu du dashboard
-![Dashboard Looker Studio](Projet-marketing-rgpd-carrefour)
+![Dashboard Looker Studio](Projet-marketing-rgpd-carrefour.jpg)
 
 ## Résultats clés
 - Canal Direct : 46% du CA (2 100 €)
