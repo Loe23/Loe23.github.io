@@ -32,9 +32,9 @@ Pipeline complet avec **Apache Airflow**, **Docker**, **Python** et **PostgreSQL
 
 ## 📊 Mes projets Data Analyst
 
-- [Optimisation des campagnes marketing (Orange)](projet-campagnes-orange) – Python, Power BI
-- [Analyse marketing RGPD-compliant (Carrefour)](projet-marketing-rgpd-carrefour) – BigQuery, Looker Studio
-- [Analyse géospatiale des transports normands](projet-transports-normandie) – Python, Folium
+- [Optimisation des campagnes marketing (Orange)](./projet-campagnes-orange) – Python, Power BI
+- [Analyse marketing RGPD-compliant (Carrefour)](./projet-marketing-rgpd-carrefour) – BigQuery, Looker Studio
+- [Analyse géospatiale des transports normands](./projet-transports-normandie) – Python, Folium
 
 📄 [Voir mon CV complet sur demande]
 
