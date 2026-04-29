@@ -1,19 +1,17 @@
-# Projet : Optimisation des campagnes marketing (Orange Lyon)
+# Optimisation des campagnes marketing (Orange)
 
-## Contexte
-Simulation de 2000 campagnes marketing pour analyser la performance des canaux (Email, SMS, Instagram, Facebook).
+Stack : Python, Power BI
 
-## Stack technique
-- Python (génération de données réalistes, Jupyter)
-- Power BI (dashboard interactif)
-
-## Aperçu du dashboard
 ![Dashboard Power BI](Projet-campagnes-orange)  
 *(Remplacez `dash-orange.png` par le nom exact de votre image si différent)*
 
 ## Résultats clés
 - **Email** : ROI 245%, 4M€ CA
 - **SMS** : ROI 189%, 3M€ CA
+- **Instagram** : potentiel à développer
+- **Facebook** : à réévaluer
+
+👉 [Revenir à l’accueil](../)
 - **Instagram** : ROI 156%, 2M€ CA
 
 ## Recommandations
