@@ -32,7 +32,7 @@ Pipeline complet avec **Apache Airflow**, **Docker**, **Python** et **PostgreSQL
 
 ## 📊 Mes projets Data Analyst
 
-- [Optimisation des campagnes marketing (Orange)](./Projet-campagnes-orange) – Python, Power BI
+- [Optimisation des campagnes marketing (Orange)](./projet-campagnes-orange) – Python, Power BI
 - [Analyse marketing RGPD-compliant (Carrefour)](![Dashboard Looker Studio](Projet-marketing-rgpd-carrefour.jpg)) – BigQuery, Looker Studio
 - [Analyse géospatiale des transports normands](.![Carte Folium](carte-folium.png.jpg)
 ![Statistiques](statistiques.png.jpg)) – Python, Folium
