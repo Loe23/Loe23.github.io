@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Comparateur transfert Côte d'Ivoire – Le moins cher du moment</title>
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background: #f8f9fc;
@@ -31,7 +34,9 @@
             gap: 12px;
             flex-wrap: wrap;
         }
-        .flag { font-size: 2rem; }
+        .flag {
+            font-size: 2rem;
+        }
         .badge-date {
             background: #eef2ff;
             padding: 6px 12px;
@@ -79,8 +84,11 @@
             font-size: 0.8rem;
             font-weight: 500;
             display: inline-block;
+            transition: 0.2s;
         }
-        .btn-link:hover { background: #084c8c; }
+        .btn-link:hover {
+            background: #084c8c;
+        }
         .graph-section {
             background: #fefcf5;
             border-radius: 24px;
@@ -95,7 +103,10 @@
             align-items: center;
             gap: 8px;
         }
-        canvas { max-height: 260px; width: 100%; }
+        canvas {
+            max-height: 260px;
+            width: 100%;
+        }
         .insight {
             margin-top: 12px;
             font-size: 0.85rem;
@@ -113,10 +124,14 @@
         }
         .form-box p {
             margin-bottom: 12px;
+            font-weight: 500;
         }
         iframe {
             border-radius: 16px;
             background: white;
+            width: 100%;
+            height: 650px;
+            border: none;
         }
         footer {
             margin-top: 40px;
@@ -127,46 +142,87 @@
             padding-top: 20px;
         }
         @media (max-width: 640px) {
-            .container { padding: 16px; }
-            th, td { font-size: 0.8rem; padding: 10px 6px; }
-            .btn-link { padding: 5px 10px; font-size: 0.7rem; }
+            .container {
+                padding: 16px;
+            }
+            th, td {
+                font-size: 0.8rem;
+                padding: 10px 6px;
+            }
+            .btn-link {
+                padding: 5px 10px;
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
 <body>
 <div class="container">
     <h1>
-        <span class="flag">🇨🇮</span> 
+        <span class="flag">🇨🇮</span>
         Envoyer de l'argent en Côte d'Ivoire
         <span class="badge-date" id="dateBadge">chargement...</span>
     </h1>
-    <div class="sub">📊 Comparaison des frais + taux réel – Mis à jour automatiquement</div>
+    <div class="sub">
+        📊 Comparaison des frais + taux réel – Mis à jour automatiquement
+    </div>
 
-    <!-- ========= TABLEAU COMPARATIF ========= -->
+    <!-- Tableau comparatif -->
     <table id="compareTable">
-        <thead><tr><th>Service</th><th>Frais (200 €)</th><th>Taux (FCFA/€)</th><th>Reçu (FCFA)</th><th>Lien</th></tr></thead>
+        <thead>
+            <tr><th>Service</th><th>Frais (200 €)</th><th>Taux (FCFA/€)</th><th>Reçu (FCFA)</th><th>Lien</th></tr>
+        </thead>
         <tbody>
-            <tr class="best"><td>Wave</td><td>1,50 €</td><td>655,96</td><td>130 092</td><td><a href="#" class="btn-link" data-service="Wave">Envoyer →</a></td></tr>
-            <tr><td>Orange Money</td><td>2,50 €</td><td>650,00</td><td>126 750</td><td><a href="#" class="btn-link" data-service="Orange">Envoyer →</a></td></tr>
-            <tr><td>Remitly</td><td>1,00 €</td><td>658,00</td><td>131 600</td><td><a href="#" class="btn-link" data-service="Remitly">Envoyer →</a></td></tr>
+            <tr class="best">
+                <td>Wave</td>
+                <td>1,50 €</td>
+                <td>655,96</td>
+                <td>130 092</td>
+                <td><a href="#" class="btn-link" data-service="Wave">Envoyer →</a></td>
+            </tr>
+            <tr>
+                <td>Orange Money</td>
+                <td>2,50 €</td>
+                <td>650,00</td>
+                <td>126 750</td>
+                <td><a href="#" class="btn-link" data-service="Orange">Envoyer →</a></td>
+             </tr>
+            <tr>
+                <td>Remitly</td>
+                <td>1,00 €</td>
+                <td>658,00</td>
+                <td>131 600</td>
+                <td><a href="#" class="btn-link" data-service="Remitly">Envoyer →</a></td>
+             </tr>
         </tbody>
     </table>
-    <p style="font-size:0.85rem; margin-top:-15px;">🔁 Dernière mise à jour : <strong id="lastUpdateText">12 juin 2026</strong> – <span style="color:#2b9348;">✅ Remitly le moins cher aujourd'hui</span></p>
+    <p style="font-size:0.85rem; margin-top:-15px;">
+        🔁 Dernière mise à jour : <strong id="lastUpdateText">12 juin 2026</strong> – <span style="color:#2b9348;">✅ Remitly le moins cher aujourd'hui</span>
+    </p>
 
-    <!-- ========= GRAPHIQUE ========= -->
+    <!-- Graphique -->
     <div class="graph-section">
-        <div class="graph-title">📈 Application la plus utilisée par la diaspora (mai 2026) <span style="font-size:0.75rem;">🔍 sondage récent</span></div>
-        <canvas id="usageChart" width="400" height="200" style="max-width:100%; height:auto;"></canvas>
-        <div class="insight">💡 Selon notre enquête terrain : <strong>Wave</strong> reste le leader (45%), mais <strong>Remitly</strong> progresse grâce à ses frais réduits.</div>
+        <div class="graph-title">
+            📈 Application la plus utilisée par la diaspora (mai 2026)
+            <span style="font-size:0.75rem;">🔍 sondage récent</span>
+        </div>
+        <canvas id="usageChart" width="400" height="200"></canvas>
+        <div class="insight">
+            💡 Selon notre enquête terrain : <strong>Wave</strong> reste le leader (45%), mais <strong>Remitly</strong> progresse grâce à ses frais réduits.
+        </div>
     </div>
 
-    <!-- ========= FORMULAIRE GOOGLE FORMS INTÉGRÉ ========= -->
+    <!-- Formulaire Google Forms (public) -->
     <div class="form-box">
         <p>📧 Recevez chaque semaine le meilleur taux par email + 1€ de cashback offert</p>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScWN6XugUNe2SyXFWBaDXy18yYXyCtv26WPbwsyt_KxEHcOlQ/viewform?embedded=true" width="100%" height="650" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScWN6XugUNe2SyXFWBaDXy18yYXyCtv26WPbwsyt_KxEHcOlQ/viewform?embedded=true" width="100%" height="650" frameborder="0" marginheight="0" marginwidth="0">
+            Chargement…
+        </iframe>
     </div>
 
-    <footer>© 2026 Comparateur indépendant – Données indicatives. Les liens d'affiliation nous aident à financer l'outil.</footer>
+    <footer>
+        © 2026 Comparateur indépendant – Données indicatives. Les liens d'affiliation nous aident à financer l'outil.
+    </footer>
 </div>
 
 <script>
@@ -196,11 +252,13 @@
                 legend: { position: 'top' },
                 tooltip: { callbacks: { label: (ctx) => `${ctx.raw}% des utilisateurs` } }
             },
-            scales: { y: { beginAtZero: true, max: 60, title: { display: true, text: 'Pourcentage (%)' } } }
+            scales: {
+                y: { beginAtZero: true, max: 60, title: { display: true, text: 'Pourcentage (%)' } }
+            }
         }
     });
 
-    // Gestion temporaire des liens d'affiliation
+    // Gestion temporaire des liens (à remplacer par vos liens d'affiliation)
     const links = document.querySelectorAll('.btn-link');
     links.forEach(link => {
         link.addEventListener('click', (e) => {
