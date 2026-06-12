@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Comparateur transfert Côte d'Ivoire – Le moins cher du moment</title>
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         * {
@@ -34,9 +35,7 @@
             gap: 12px;
             flex-wrap: wrap;
         }
-        .flag {
-            font-size: 2rem;
-        }
+        .flag { font-size: 2rem; }
         .badge-date {
             background: #eef2ff;
             padding: 6px 12px;
@@ -130,7 +129,6 @@
             border-radius: 16px;
             background: white;
             width: 100%;
-            height: 650px;
             border: none;
         }
         footer {
@@ -142,17 +140,9 @@
             padding-top: 20px;
         }
         @media (max-width: 640px) {
-            .container {
-                padding: 16px;
-            }
-            th, td {
-                font-size: 0.8rem;
-                padding: 10px 6px;
-            }
-            .btn-link {
-                padding: 5px 10px;
-                font-size: 0.7rem;
-            }
+            .container { padding: 16px; }
+            th, td { font-size: 0.8rem; padding: 10px 6px; }
+            .btn-link { padding: 5px 10px; font-size: 0.7rem; }
         }
     </style>
 </head>
@@ -167,8 +157,8 @@
         📊 Comparaison des frais + taux réel – Mis à jour automatiquement
     </div>
 
-    <!-- Tableau comparatif -->
-    <table id="compareTable">
+    <!-- Tableau comparatif (données statiques à modifier/automatiser) -->
+    <table>
         <thead>
             <tr><th>Service</th><th>Frais (200 €)</th><th>Taux (FCFA/€)</th><th>Reçu (FCFA)</th><th>Lien</th></tr>
         </thead>
@@ -186,21 +176,21 @@
                 <td>650,00</td>
                 <td>126 750</td>
                 <td><a href="#" class="btn-link" data-service="Orange">Envoyer →</a></td>
-             </tr>
+            </tr>
             <tr>
                 <td>Remitly</td>
                 <td>1,00 €</td>
                 <td>658,00</td>
                 <td>131 600</td>
                 <td><a href="#" class="btn-link" data-service="Remitly">Envoyer →</a></td>
-             </tr>
+            </tr>
         </tbody>
     </table>
     <p style="font-size:0.85rem; margin-top:-15px;">
         🔁 Dernière mise à jour : <strong id="lastUpdateText">12 juin 2026</strong> – <span style="color:#2b9348;">✅ Remitly le moins cher aujourd'hui</span>
     </p>
 
-    <!-- Graphique -->
+    <!-- Graphique d'utilisation -->
     <div class="graph-section">
         <div class="graph-title">
             📈 Application la plus utilisée par la diaspora (mai 2026)
@@ -212,12 +202,10 @@
         </div>
     </div>
 
-    <!-- Formulaire Google Forms (public) -->
+    <!-- Formulaire d'inscription Tally (sans Google Drive) -->
     <div class="form-box">
         <p>📧 Recevez chaque semaine le meilleur taux par email + 1€ de cashback offert</p>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScWN6XugUNe2SyXFWBaDXy18yYXyCtv26WPbwsyt_KxEHcOlQ/viewform?embedded=true" width="100%" height="650" frameborder="0" marginheight="0" marginwidth="0">
-            Chargement…
-        </iframe>
+        <iframe src="https://tally.so/embed/r/J9B644" width="100%" height="500" frameborder="0"></iframe>
     </div>
 
     <footer>
@@ -258,7 +246,7 @@
         }
     });
 
-    // Gestion temporaire des liens (à remplacer par vos liens d'affiliation)
+    // Gestion temporaire des liens d'affiliation (à remplacer par vos liens réels)
     const links = document.querySelectorAll('.btn-link');
     links.forEach(link => {
         link.addEventListener('click', (e) => {
