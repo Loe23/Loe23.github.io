@@ -229,11 +229,13 @@
     document.getElementById('lastUpdateText').innerText = today.toLocaleDateString('fr-FR');
 
     // Données des services (frais, taux, liens d'affiliation)
-    const services = [
-        { name: "Wave", fee: 1.50, rate: 655.96, affiliate: "#" },
-        { name: "Orange Money", fee: 2.50, rate: 650.00, affiliate: "#" },
-        { name: "Remitly", fee: 1.00, rate: 658.00, affiliate: "#" }
-    ];
+   const services = [
+    { name: "Wave", fee: 1.50, rate: 655.96, affiliate: "#" },
+    { name: "Orange Money", fee: 2.50, rate: 650.00, affiliate: "#" },
+    { name: "Remitly", fee: 1.00, rate: 658.00, affiliate: "#" },
+    { name: "Taptap Send", fee: 0.00, rate: 655.00, affiliate: "#" },
+    { name: "WorldRemit", fee: 2.99, rate: 654.50, affiliate: "#" }
+   ];
 
     function updateTable() {
         const amountInput = document.getElementById('amountInput');
