@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Comparateur transfert Côte d'Ivoire – Le moins cher du moment</title>
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         * {
@@ -191,10 +190,24 @@
                 <td>131 600</td>
                 <td><a href="#" class="btn-link" data-service="Remitly">Envoyer →</a></td>
             </tr>
+            <tr>
+                <td>Taptap Send</td>
+                <td>0,00 €</td>
+                <td>655,00</td>
+                <td>131 000</td>
+                <td><a href="#" class="btn-link" data-service="Taptap">Envoyer →</a></td>
+            </tr>
+            <tr>
+                <td>WorldRemit</td>
+                <td>2,99 €</td>
+                <td>654,50</td>
+                <td>129 279</td>
+                <td><a href="#" class="btn-link" data-service="WorldRemit">Envoyer →</a></td>
+            </tr>
         </tbody>
     </table>
     <p style="font-size:0.85rem; margin-top:-15px;">
-        🔁 Dernière mise à jour : <strong id="lastUpdateText">12/06/2026</strong> – <span id="bestText" style="color:#2b9348;">✅ Remitly le moins cher aujourd'hui</span>
+        🔁 Dernière mise à jour : <strong id="lastUpdateText">13/06/2026</strong> – <span id="bestText" style="color:#2b9348;">✅ Remitly le moins cher aujourd'hui</span>
     </p>
 
     <!-- Graphique d'utilisation -->
@@ -209,12 +222,12 @@
         </div>
     </div>
 
-    <!-- Formulaire d'inscription Tally (corrigé) -->
+    <!-- Formulaire d'inscription Tally -->
     <div class="form-box">
-    <p>📬 Recevez le meilleur taux chaque semaine (et 1€ offert)</p>
-    <iframe data-tally-src="https://tally.so/embed/J9B644?alignLeft=1&hideTitle=1&transparentBackground=1" 
-            width="100%" height="400" loading="lazy" frameborder="0"></iframe>
-     </div>
+        <p>📬 Recevez le meilleur taux chaque semaine (et 1€ offert)</p>
+        <iframe data-tally-src="https://tally.so/embed/J9B644?alignLeft=1&hideTitle=1&transparentBackground=1" 
+                width="100%" height="400" loading="lazy" frameborder="0"></iframe>
+    </div>
 
     <footer>
         © 2026 Comparateur indépendant – Données indicatives. Les liens d'affiliation nous aident à financer l'outil.
@@ -222,20 +235,20 @@
 </div>
 
 <script>
-    // Date dynamique dans le bandeau
+    // Date dynamique
     const today = new Date();
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('dateBadge').innerText = today.toLocaleDateString('fr-FR', options);
-    document.getElementById('lastUpdateText').innerText = today.toLocaleDateString('fr-FR');
+    document.getElementById('lastUpdateText').innerText = today.toLocaleDateString('fr-FR') + ' à ' + today.getHours() + 'h' + String(today.getMinutes()).padStart(2,'0');
 
-    // Données des services (frais, taux, liens d'affiliation)
-   const services = [
-    { name: "Wave", fee: 1.50, rate: 655.96, affiliate: "#" },
-    { name: "Orange Money", fee: 2.50, rate: 650.00, affiliate: "#" },
-    { name: "Remitly", fee: 1.00, rate: 658.00, affiliate: "#" },
-    { name: "Taptap Send", fee: 0.00, rate: 655.00, affiliate: "#" },
-    { name: "WorldRemit", fee: 2.99, rate: 654.50, affiliate: "#" }
-   ];
+    // Données des services (à actualiser avec les vrais taux)
+    const services = [
+        { name: "Wave", fee: 1.50, rate: 655.96, affiliate: "#" },
+        { name: "Orange Money", fee: 2.50, rate: 650.00, affiliate: "#" },
+        { name: "Remitly", fee: 1.00, rate: 658.00, affiliate: "#" },
+        { name: "Taptap Send", fee: 0.00, rate: 655.00, affiliate: "#" },
+        { name: "WorldRemit", fee: 2.99, rate: 654.50, affiliate: "#" }
+    ];
 
     function updateTable() {
         const amountInput = document.getElementById('amountInput');
@@ -256,7 +269,7 @@
                 row.cells[3].innerText = Math.round(received).toLocaleString('fr-FR') + ' FCFA';
                 row.cells[4].querySelector('a').href = s.affiliate;
 
-                // Supprime la classe 'best'
+                // Retirer la classe 'best'
                 row.classList.remove('best');
 
                 if (received > maxReceived) {
@@ -266,22 +279,22 @@
             }
         });
 
-        // Applique 'best' à la ligne la plus avantageuse
+        // Appliquer la classe 'best' à la ligne gagnante
         rows[bestIndex].classList.add('best');
 
-        // Met à jour le texte "le moins cher"
+        // Mettre à jour le texte "le moins cher"
         const bestText = document.getElementById('bestText');
         if (bestText) {
             bestText.innerHTML = '✅ ' + services[bestIndex].name + ' le moins cher aujourd\'hui';
         }
     }
 
-    // Écoute les modifications du champ
+    // Écouteur sur le champ montant
     document.getElementById('amountInput').addEventListener('input', updateTable);
     // Premier calcul au chargement
     window.addEventListener('DOMContentLoaded', updateTable);
 
-    // Graphique Chart.js (données d'enquête statiques)
+    // Graphique Chart.js
     const ctx = document.getElementById('usageChart').getContext('2d');
     new Chart(ctx, {
         type: 'bar',
@@ -307,7 +320,7 @@
         }
     });
 </script>
-    <!-- Ajoute cette ligne ci-dessous -->
+<!-- Script de chargement des iframes Tally -->
 <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
