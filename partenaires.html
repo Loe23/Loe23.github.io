@@ -2,34 +2,353 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partenariats – Comparateur transfert Côte d'Ivoire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Comparateur transfert Côte d'Ivoire – Meilleur taux et frais réduits en temps réel</title>
+    <meta name="description" content="Comparez chaque jour les frais et taux de change des services d'envoi d'argent vers la Côte d'Ivoire : Sendwave, Orange Money, Remitly, Taptap Send, WorldRemit. Trouvez le moins cher et économisez.">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Script Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9875941820870479" crossorigin="anonymous"></script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background: #f8f9fc;
-            padding: 40px;
+            padding: 20px;
             color: #1e2a3a;
-            max-width: 700px;
-            margin: 0 auto;
         }
-        h1 { color: #0a66b9; }
-        ul { line-height: 1.8; }
-        a { color: #0a66b9; }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+            padding: 20px 24px 40px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .flag { font-size: 2rem; }
+        .badge-date {
+            background: #eef2ff;
+            padding: 6px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: normal;
+            color: #1e40af;
+        }
+        .sub {
+            color: #4a5c6c;
+            border-left: 4px solid #f59e0b;
+            padding-left: 16px;
+            margin: 16px 0 24px 0;
+            font-weight: 500;
+        }
+        .intro {
+            font-size: 0.95rem;
+            color: #2c3e50;
+            margin: 12px 0 20px;
+            line-height: 1.5;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+            margin: 24px 0;
+        }
+        th, td {
+            padding: 14px 10px;
+            text-align: left;
+            border-bottom: 1px solid #e9edf2;
+        }
+        th {
+            background: #f7f9fc;
+            font-weight: 600;
+            color: #1f3a4b;
+        }
+        .best {
+            background: #e6f9ed;
+            border-left: 4px solid #2b9348;
+        }
+        .btn-link {
+            background: #0a66b9;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            transition: 0.2s;
+        }
+        .btn-link:hover {
+            background: #084c8c;
+        }
+        .promo-badge {
+            display: block;
+            font-size: 0.7rem;
+            color: #2b9348;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        .graph-section {
+            background: #fefcf5;
+            border-radius: 24px;
+            padding: 20px;
+            margin: 32px 0 24px;
+            border: 1px solid #ffe4b5;
+        }
+        .graph-title {
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        canvas {
+            max-height: 260px;
+            width: 100%;
+        }
+        .insight {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #3b5c2e;
+            background: #eef6e6;
+            padding: 10px 16px;
+            border-radius: 20px;
+        }
+        .form-box {
+            background: #f0f4fa;
+            border-radius: 24px;
+            padding: 20px;
+            margin-top: 32px;
+            text-align: center;
+        }
+        .form-box p {
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        iframe {
+            border-radius: 16px;
+            background: white;
+            width: 100%;
+            border: none;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.75rem;
+            text-align: center;
+            color: #7c8b9c;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 16px; }
+            th, td { font-size: 0.8rem; padding: 10px 6px; }
+            .btn-link { padding: 5px 10px; font-size: 0.7rem; }
+        }
     </style>
 </head>
 <body>
-    <h1>🤝 Devenir partenaire</h1>
-    <p>Notre comparateur de transfert d’argent vers la Côte d’Ivoire attire chaque mois des <strong>centaines d’expatriés ivoiriens</strong> à la recherche du meilleur taux.</p>
-    <p><strong>Vous souhaitez toucher cette audience qualifiée ?</strong></p>
-    <p>Nous proposons :</p>
-    <ul>
-        <li>🎯 <strong>Sponsoring d’une place dans le comparateur</strong> (mise en avant de votre service)</li>
-        <li>📊 <strong>Génération de leads qualifiés</strong> (assurance santé expatrié, immobilier, banque, forfaits téléphoniques)</li>
-        <li>📝 <strong>Contenu sponsorisé</strong> (article, conseils)</li>
-    </ul>
-    <p>📧 Contactez-nous pour une proposition personnalisée :<br>
-    <a href="mailto:loegnali@gmail.com">loegnali@gmail.com</a></p>
-    <p style="margin-top: 40px; font-size: 0.8rem; color: #666;">© 2026 Comparateur indépendant</p>
+<div class="container">
+    <h1>
+        <span class="flag">🇨🇮</span>
+        Envoyer de l'argent en Côte d'Ivoire
+        <span class="badge-date" id="dateBadge">chargement...</span>
+    </h1>
+    <div class="sub">
+        📊 Comparaison des frais + taux réel – Mis à jour automatiquement
+    </div>
+    <div class="intro">
+        💡 <strong>Économisez sur vos transferts.</strong> Nous comparons chaque jour les principaux services d’envoi d’argent de la France vers la Côte d’Ivoire. Indiquez votre montant et découvrez instantanément l’offre la plus avantageuse. Les taux et frais sont mis à jour quotidiennement pour vous garantir une information fiable.
+    </div>
+
+    <!-- Champ de montant dynamique -->
+    <div style="margin: 20px 0; display: flex; align-items: center; gap: 12px;">
+        <label for="amountInput" style="font-weight: 600;">💶 Montant envoyé (€) :</label>
+        <input type="number" id="amountInput" value="200" min="10" step="10" 
+               style="font-size: 1.2rem; width: 120px; padding: 8px; border-radius: 12px; border: 1px solid #ccc;">
+    </div>
+
+    <!-- Tableau comparatif -->
+    <table>
+        <thead>
+            <tr><th>Service</th><th>Frais (€)</th><th>Taux (FCFA/€)</th><th>Reçu (FCFA)</th><th>Lien</th></tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Généré dynamiquement -->
+        </tbody>
+    </table>
+    <p style="font-size:0.85rem; margin-top:-15px;">
+        🔁 Dernière mise à jour : <strong id="lastUpdateText">chargement...</strong> – <span id="bestText" style="color:#2b9348;"></span>
+    </p>
+
+    <!-- Graphique d'utilisation -->
+    <div class="graph-section">
+        <div class="graph-title">
+            📈 Services d’envoi les plus utilisés par la diaspora (estimations 2026)
+            <span style="font-size:0.75rem;">🔍 données indicatives</span>
+        </div>
+        <canvas id="usageChart" width="400" height="200"></canvas>
+        <div class="insight">
+            💡 <strong>Sendwave</strong> et <strong>Orange Money</strong> dominent le marché, mais <strong>Remitly</strong> progresse grâce à ses offres promotionnelles régulières.
+        </div>
+    </div>
+
+    <!-- Formulaire d'inscription Tally -->
+    <div class="form-box">
+        <p>📬 Recevez le meilleur taux chaque semaine (et 1€ offert)</p>
+        <iframe data-tally-src="https://tally.so/embed/J9B644?alignLeft=1&hideTitle=1&transparentBackground=1" 
+                width="100%" height="400" loading="lazy" frameborder="0"></iframe>
+    </div>
+
+    <footer>
+        © 2026 Comparateur indépendant – Données indicatives. Les liens d'affiliation nous aident à financer l'outil.<br>
+        <a href="partenaires.html" style="color:#0a66b9;">Devenir partenaire</a>
+    </footer>
+</div>
+
+<script>
+    // Date dynamique
+    const today = new Date();
+    document.getElementById('dateBadge').innerText = today.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    let servicesData = [];
+
+    // Chargement du data.json
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('lastUpdateText').innerText = new Date(data.last_updated).toLocaleString('fr-FR');
+            servicesData = data.services;
+            buildTable();
+            updateTable();
+        })
+        .catch(() => {
+            console.warn('Fallback sur des données par défaut');
+            document.getElementById('lastUpdateText').innerText = 'données non disponibles';
+            servicesData = [
+                { name: "Sendwave", fee: 3.00, rate: 655.96, affiliate: "https://try.sendwave.com/kjap/0j1rdj7j" },
+                { name: "Orange Money", fee: 2.50, rate: 650.00, affiliate: "#" },
+                { name: "Remitly", fee_special: { function: true, thresholds: [100,200,300,500,700], values: [2.99,5.99,8.99,12.99,15.99,18.99] }, rate: 655.96, affiliate: "#" },
+                { name: "Taptap Send", fee: 2.00, rate: 655.957, affiliate: "https://taptapsend.onelink.me/Lrab/appreferral" },
+                { name: "WorldRemit", fee: 2.00, rate: 655.957, affiliate: "#" }
+            ];
+            buildTable();
+            updateTable();
+        });
+
+    // Construire le tableau dynamiquement avec les promos
+    function buildTable() {
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
+        servicesData.forEach(service => {
+            const tr = document.createElement('tr');
+            let serviceCell = service.name;
+            // Ajouter la bannière promo si applicable
+            if (service.name === "Taptap Send") {
+                serviceCell += '<span class="promo-badge">🎁 10€ offerts (nouveaux clients) – code JOELL823</span>';
+            } else if (service.name === "Sendwave") {
+                serviceCell += '<span class="promo-badge">🎁 20€ offerts (nouveaux clients) – code 4ZJWI</span>';
+            }
+            tr.innerHTML = `
+                <td>${serviceCell}</td>
+                <td class="fee-cell">-</td>
+                <td class="rate-cell">${service.rate.toFixed(3).replace('.', ',')}</td>
+                <td class="received-cell">-</td>
+                <td><a href="${service.affiliate || '#'}" class="btn-link" target="_blank" rel="noopener">Envoyer →</a></td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    // Calculer les frais (fixe ou grille)
+    function getFee(service, amount) {
+        if (service.fee_special && service.fee_special.function) {
+            const thresholds = service.fee_special.thresholds;
+            const values = service.fee_special.values;
+            if (amount < thresholds[0]) return values[0];
+            if (amount < thresholds[1]) return values[1];
+            if (amount < thresholds[2]) return values[2];
+            if (amount < thresholds[3]) return values[3];
+            if (amount < thresholds[4]) return values[4];
+            return values[5];
+        }
+        return service.fee;
+    }
+
+    function updateTable() {
+        const amountInput = document.getElementById('amountInput');
+        const amount = parseFloat(amountInput.value) || 200;
+        const rows = document.querySelectorAll('#tableBody tr');
+
+        let bestIndex = 0;
+        let maxReceived = 0;
+
+        rows.forEach((row, i) => {
+            if (i < servicesData.length) {
+                const service = servicesData[i];
+                const feeValue = getFee(service, amount);
+                const received = (amount - feeValue) * service.rate;
+
+                row.querySelector('.fee-cell').innerText = feeValue.toFixed(2).replace('.', ',') + ' €';
+                row.querySelector('.received-cell').innerText = Math.round(received).toLocaleString('fr-FR') + ' FCFA';
+
+                row.classList.remove('best');
+                if (received > maxReceived) {
+                    maxReceived = received;
+                    bestIndex = i;
+                }
+            }
+        });
+
+        if (rows.length > 0) {
+            rows[bestIndex].classList.add('best');
+            document.getElementById('bestText').innerHTML = '✅ ' + servicesData[bestIndex].name + ' le moins cher aujourd\'hui';
+        }
+    }
+
+    document.getElementById('amountInput').addEventListener('input', updateTable);
+
+    // Graphique
+    const ctx = document.getElementById('usageChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Sendwave', 'Orange Money', 'Remitly', 'Taptap Send', 'WorldRemit', 'Autres'],
+            datasets: [{
+                label: 'Part d’utilisation (%) – Estimations 2026',
+                data: [38, 28, 18, 8, 5, 3],
+                backgroundColor: ['#2b9348', '#f4a261', '#e76f51', '#4a6fa5', '#8d99ae', '#cccccc'],
+                borderRadius: 8,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: { callbacks: { label: (ctx) => `${ctx.raw}% des utilisateurs` } }
+            },
+            scales: {
+                y: { beginAtZero: true, max: 60, title: { display: true, text: 'Pourcentage (%)' } }
+            }
+        }
+    });
+</script>
+<!-- Script de chargement des iframes Tally -->
+<script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
