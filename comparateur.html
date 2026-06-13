@@ -213,12 +213,12 @@
     <!-- Graphique d'utilisation -->
     <div class="graph-section">
         <div class="graph-title">
-            📈 Application la plus utilisée par la diaspora (mai 2026)
-            <span style="font-size:0.75rem;">🔍 sondage récent</span>
+            📈 Services d’envoi les plus utilisés par la diaspora (estimations 2026)
+            <span style="font-size:0.75rem;">🔍 données indicatives</span>
         </div>
         <canvas id="usageChart" width="400" height="200"></canvas>
         <div class="insight">
-            💡 Selon notre enquête terrain : <strong>Wave</strong> reste le leader (45%), mais <strong>Remitly</strong> progresse grâce à ses frais réduits.
+            💡 <strong>Sendwave</strong> et <strong>Orange Money</strong> dominent le marché, mais <strong>Remitly</strong> progresse grâce à ses offres promotionnelles régulières.
         </div>
     </div>
 
@@ -296,16 +296,16 @@
     document.getElementById('amountInput').addEventListener('input', updateTable);
     window.addEventListener('DOMContentLoaded', updateTable);
 
-    // Graphique Chart.js
+    // Graphique Chart.js (corrigé)
     const ctx = document.getElementById('usageChart').getContext('2d');
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Wave', 'Orange Money', 'Remitly', 'Autres (Taptap, Wise...)'],
+            labels: ['Sendwave', 'Orange Money', 'Remitly', 'Taptap Send', 'WorldRemit', 'Autres'],
             datasets: [{
-                label: 'Part d’utilisation (%) – Mai 2026',
-                data: [45, 30, 15, 10],
-                backgroundColor: ['#2b9348', '#f4a261', '#e76f51', '#8d99ae'],
+                label: 'Part d’utilisation (%) – Estimations 2026',
+                data: [38, 28, 18, 8, 5, 3],
+                backgroundColor: ['#2b9348', '#f4a261', '#e76f51', '#4a6fa5', '#8d99ae', '#cccccc'],
                 borderRadius: 8,
             }]
         },
