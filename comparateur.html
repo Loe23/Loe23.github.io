@@ -6,6 +6,8 @@
     <title>Comparateur transfert Côte d'Ivoire – Meilleur taux et frais réduits en temps réel</title>
     <meta name="description" content="Comparez chaque jour les frais et taux de change des services d'envoi d'argent vers la Côte d'Ivoire : Sendwave, Orange Money, Remitly, Taptap Send, WorldRemit. Trouvez le moins cher et économisez.">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Script Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9875941820870479" crossorigin="anonymous"></script>
     <style>
         * {
             margin: 0;
@@ -158,11 +160,6 @@
             .btn-link { padding: 5px 10px; font-size: 0.7rem; }
         }
     </style>
-     <!-- Script Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9875941820870479"
-            crossorigin="anonymous"></script>
-    
-    <style>
 </head>
 <body>
 <div class="container">
@@ -219,7 +216,7 @@
 
     <footer>
         © 2026 Comparateur indépendant – Données indicatives. Les liens d'affiliation nous aident à financer l'outil.<br>
-    <a href="partenaires.html" style="color:#0a66b9;">Devenir partenaire</a>
+        <a href="partenaires.html" style="color:#0a66b9;">Devenir partenaire</a>
     </footer>
 </div>
 
@@ -230,18 +227,19 @@
 
     let servicesData = [];
 
-    // Chargement du data.json
+    // Chargement sécurisé du data.json
     fetch('data.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) throw new Error('Fichier data.json non trouvé');
+            return response.json();
+        })
         .then(data => {
             document.getElementById('lastUpdateText').innerText = new Date(data.last_updated).toLocaleString('fr-FR');
             servicesData = data.services;
-            buildTable();
-            updateTable();
         })
-        .catch(() => {
-            console.warn('Fallback sur des données par défaut');
-            document.getElementById('lastUpdateText').innerText = 'données non disponibles';
+        .catch(err => {
+            console.warn('Fallback utilisé : ' + err.message);
+            document.getElementById('lastUpdateText').innerText = 'données par défaut';
             servicesData = [
                 { name: "Sendwave", fee: 3.00, rate: 655.96, affiliate: "https://try.sendwave.com/kjap/0j1rdj7j" },
                 { name: "Orange Money", fee: 2.50, rate: 650.00, affiliate: "#" },
@@ -249,6 +247,8 @@
                 { name: "Taptap Send", fee: 2.00, rate: 655.957, affiliate: "https://taptapsend.onelink.me/Lrab/appreferral" },
                 { name: "WorldRemit", fee: 2.00, rate: 655.957, affiliate: "#" }
             ];
+        })
+        .finally(() => {
             buildTable();
             updateTable();
         });
@@ -262,9 +262,9 @@
             let serviceCell = service.name;
             // Ajouter la bannière promo si applicable
             if (service.name === "Taptap Send") {
-                serviceCell += '<span class="promo-badge">🎁 10€ offerts – code JOELL823</span>';
+                serviceCell += '<span class="promo-badge">🎁 10€ offerts (nouveaux clients) – code JOELL823</span>';
             } else if (service.name === "Sendwave") {
-                serviceCell += '<span class="promo-badge">🎁 20€ offerts – code 4ZJWI</span>';
+                serviceCell += '<span class="promo-badge">🎁 20€ offerts (nouveaux clients) – code 4ZJWI</span>';
             }
             tr.innerHTML = `
                 <td>${serviceCell}</td>
