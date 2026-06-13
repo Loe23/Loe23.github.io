@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Comparateur transfert Côte d'Ivoire – Le moins cher du moment</title>
+    <title>Comparateur transfert Côte d'Ivoire – Meilleur taux et frais réduits en temps réel</title>
+    <meta name="description" content="Comparez chaque jour les frais et taux de change des services d'envoi d'argent vers la Côte d'Ivoire : Sendwave, Orange Money, Remitly, Taptap Send, WorldRemit. Trouvez le moins cher et économisez.">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         * {
@@ -50,6 +51,12 @@
             margin: 16px 0 24px 0;
             font-weight: 500;
         }
+        .intro {
+            font-size: 0.95rem;
+            color: #2c3e50;
+            margin: 12px 0 20px;
+            line-height: 1.5;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -86,6 +93,13 @@
         }
         .btn-link:hover {
             background: #084c8c;
+        }
+        .promo-badge {
+            display: block;
+            font-size: 0.7rem;
+            color: #2b9348;
+            font-weight: 600;
+            margin-top: 4px;
         }
         .graph-section {
             background: #fefcf5;
@@ -155,6 +169,9 @@
     <div class="sub">
         📊 Comparaison des frais + taux réel – Mis à jour automatiquement
     </div>
+    <div class="intro">
+        💡 <strong>Économisez sur vos transferts.</strong> Nous comparons chaque jour les principaux services d’envoi d’argent de la France vers la Côte d’Ivoire. Indiquez votre montant et découvrez instantanément l’offre la plus avantageuse. Les taux et frais sont mis à jour quotidiennement pour vous garantir une information fiable.
+    </div>
 
     <!-- Champ de montant dynamique -->
     <div style="margin: 20px 0; display: flex; align-items: center; gap: 12px;">
@@ -168,46 +185,12 @@
         <thead>
             <tr><th>Service</th><th>Frais (€)</th><th>Taux (FCFA/€)</th><th>Reçu (FCFA)</th><th>Lien</th></tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>Sendwave</td>
-                <td>3,00 €</td>
-                <td>655,96</td>
-                <td>129 224</td>
-                <td><a href="#" class="btn-link" data-service="Sendwave">Envoyer →</a></td>
-            </tr>
-            <tr>
-                <td>Orange Money</td>
-                <td>2,50 €</td>
-                <td>650,00</td>
-                <td>128 375</td>
-                <td><a href="#" class="btn-link" data-service="Orange">Envoyer →</a></td>
-            </tr>
-            <tr>
-                <td>Remitly</td>
-                <td>8,99 €</td>
-                <td>655,96</td>
-                <td>124 972</td>
-                <td><a href="#" class="btn-link" data-service="Remitly">Envoyer →</a></td>
-            </tr>
-            <tr>
-                <td>Taptap Send</td>
-                <td>2,00 €</td>
-                <td>655,957</td>
-                <td>131 191</td>
-                <td><a href="#" class="btn-link" data-service="Taptap">Envoyer →</a></td>
-            </tr>
-            <tr>
-                <td>WorldRemit</td>
-                <td>2,00 €</td>
-                <td>655,957</td>
-                <td>131 191</td>
-                <td><a href="#" class="btn-link" data-service="WorldRemit">Envoyer →</a></td>
-            </tr>
+        <tbody id="tableBody">
+            <!-- Généré dynamiquement -->
         </tbody>
     </table>
     <p style="font-size:0.85rem; margin-top:-15px;">
-        🔁 Dernière mise à jour : <strong id="lastUpdateText">13/06/2026</strong> – <span id="bestText" style="color:#2b9348;">✅ Taptap Send le moins cher aujourd'hui</span>
+        🔁 Dernière mise à jour : <strong id="lastUpdateText">chargement...</strong> – <span id="bestText" style="color:#2b9348;"></span>
     </p>
 
     <!-- Graphique d'utilisation -->
@@ -237,47 +220,90 @@
 <script>
     // Date dynamique
     const today = new Date();
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('dateBadge').innerText = today.toLocaleDateString('fr-FR', options);
-    document.getElementById('lastUpdateText').innerText = today.toLocaleDateString('fr-FR') + ' à ' + today.getHours() + 'h' + String(today.getMinutes()).padStart(2,'0');
+    document.getElementById('dateBadge').innerText = today.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
 
-    // Données des services
-    const services = [
-        { name: "Sendwave", fee: 3.00, rate: 655.96, affiliate: "#" },
-        { name: "Orange Money", fee: 2.50, rate: 650.00, affiliate: "#" },
-        { name: "Remitly", fee: function(amount) {
-            if (amount < 100) return 2.99;
-            if (amount < 200) return 5.99;
-            if (amount < 300) return 8.99;
-            if (amount < 500) return 12.99;
-            if (amount < 700) return 15.99;
-            return 18.99;
-        }, rate: 655.96, affiliate: "#" },
-        { name: "Taptap Send", fee: 2.00, rate: 655.957, affiliate: "#" },
-        { name: "WorldRemit", fee: 2.00, rate: 655.957, affiliate: "#" }
-    ];
+    let servicesData = [];
+
+    // Chargement du data.json
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('lastUpdateText').innerText = new Date(data.last_updated).toLocaleString('fr-FR');
+            servicesData = data.services;
+            buildTable();
+            updateTable();
+        })
+        .catch(() => {
+            console.warn('Fallback sur des données par défaut');
+            document.getElementById('lastUpdateText').innerText = 'données non disponibles';
+            servicesData = [
+                { name: "Sendwave", fee: 3.00, rate: 655.96, affiliate: "https://try.sendwave.com/kjap/0j1rdj7j" },
+                { name: "Orange Money", fee: 2.50, rate: 650.00, affiliate: "#" },
+                { name: "Remitly", fee_special: { function: true, thresholds: [100,200,300,500,700], values: [2.99,5.99,8.99,12.99,15.99,18.99] }, rate: 655.96, affiliate: "#" },
+                { name: "Taptap Send", fee: 2.00, rate: 655.957, affiliate: "https://taptapsend.onelink.me/Lrab/appreferral" },
+                { name: "WorldRemit", fee: 2.00, rate: 655.957, affiliate: "#" }
+            ];
+            buildTable();
+            updateTable();
+        });
+
+    // Construire le tableau dynamiquement avec les promos
+    function buildTable() {
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
+        servicesData.forEach(service => {
+            const tr = document.createElement('tr');
+            let serviceCell = service.name;
+            // Ajouter la bannière promo si applicable
+            if (service.name === "Taptap Send") {
+                serviceCell += '<span class="promo-badge">🎁 10€ offerts – code JOELL823</span>';
+            } else if (service.name === "Sendwave") {
+                serviceCell += '<span class="promo-badge">🎁 20€ offerts – code 4ZJWI</span>';
+            }
+            tr.innerHTML = `
+                <td>${serviceCell}</td>
+                <td class="fee-cell">-</td>
+                <td class="rate-cell">${service.rate.toFixed(3).replace('.', ',')}</td>
+                <td class="received-cell">-</td>
+                <td><a href="${service.affiliate || '#'}" class="btn-link" target="_blank" rel="noopener">Envoyer →</a></td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    // Calculer les frais (fixe ou grille)
+    function getFee(service, amount) {
+        if (service.fee_special && service.fee_special.function) {
+            const thresholds = service.fee_special.thresholds;
+            const values = service.fee_special.values;
+            if (amount < thresholds[0]) return values[0];
+            if (amount < thresholds[1]) return values[1];
+            if (amount < thresholds[2]) return values[2];
+            if (amount < thresholds[3]) return values[3];
+            if (amount < thresholds[4]) return values[4];
+            return values[5];
+        }
+        return service.fee;
+    }
 
     function updateTable() {
         const amountInput = document.getElementById('amountInput');
         const amount = parseFloat(amountInput.value) || 200;
-        const rows = document.querySelectorAll('tbody tr');
+        const rows = document.querySelectorAll('#tableBody tr');
 
         let bestIndex = 0;
         let maxReceived = 0;
 
         rows.forEach((row, i) => {
-            if (i < services.length) {
-                const s = services[i];
-                const feeValue = (typeof s.fee === 'function') ? s.fee(amount) : s.fee;
-                const received = (amount - feeValue) * s.rate;
+            if (i < servicesData.length) {
+                const service = servicesData[i];
+                const feeValue = getFee(service, amount);
+                const received = (amount - feeValue) * service.rate;
 
-                row.cells[1].innerText = feeValue.toFixed(2).replace('.', ',') + ' €';
-                row.cells[2].innerText = s.rate.toFixed(3).replace('.', ',');
-                row.cells[3].innerText = Math.round(received).toLocaleString('fr-FR') + ' FCFA';
-                row.cells[4].querySelector('a').href = s.affiliate;
+                row.querySelector('.fee-cell').innerText = feeValue.toFixed(2).replace('.', ',') + ' €';
+                row.querySelector('.received-cell').innerText = Math.round(received).toLocaleString('fr-FR') + ' FCFA';
 
                 row.classList.remove('best');
-
                 if (received > maxReceived) {
                     maxReceived = received;
                     bestIndex = i;
@@ -285,18 +311,15 @@
             }
         });
 
-        rows[bestIndex].classList.add('best');
-
-        const bestText = document.getElementById('bestText');
-        if (bestText) {
-            bestText.innerHTML = '✅ ' + services[bestIndex].name + ' le moins cher aujourd\'hui';
+        if (rows.length > 0) {
+            rows[bestIndex].classList.add('best');
+            document.getElementById('bestText').innerHTML = '✅ ' + servicesData[bestIndex].name + ' le moins cher aujourd\'hui';
         }
     }
 
     document.getElementById('amountInput').addEventListener('input', updateTable);
-    window.addEventListener('DOMContentLoaded', updateTable);
 
-    // Graphique Chart.js (version simple, sans ajustement de résolution)
+    // Graphique
     const ctx = document.getElementById('usageChart').getContext('2d');
     new Chart(ctx, {
         type: 'bar',
