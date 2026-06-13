@@ -1,0 +1,52 @@
+{
+  "last_updated": "2026-06-13T00:51:00.388627Z",
+  "services": [
+    {
+      "name": "Sendwave",
+      "fee": 3.0,
+      "rate": 655.96,
+      "affiliate": "#"
+    },
+    {
+      "name": "Orange Money",
+      "fee": 2.5,
+      "rate": 650.0,
+      "affiliate": "#"
+    },
+    {
+      "name": "Remitly",
+      "fee_special": {
+        "function": true,
+        "thresholds": [
+          100,
+          200,
+          300,
+          500,
+          700
+        ],
+        "values": [
+          2.99,
+          5.99,
+          8.99,
+          12.99,
+          15.99,
+          18.99
+        ]
+      },
+      "rate": 655.96,
+      "affiliate": "#"
+    },
+    {
+      "name": "Taptap Send",
+      "fee": 2.0,
+      "rate": 655.957,
+      "affiliate": "#"
+    },
+    {
+      "name": "WorldRemit",
+      "fee": 2.0,
+      "rate": 655.957,
+      "affiliate": "#"
+    }
+  ]
+}
