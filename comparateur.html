@@ -180,34 +180,34 @@
                 <td>Orange Money</td>
                 <td>2,50 €</td>
                 <td>650,00</td>
-                <td>126 750</td>
+                <td>128 375</td>
                 <td><a href="#" class="btn-link" data-service="Orange">Envoyer →</a></td>
             </tr>
             <tr>
                 <td>Remitly</td>
-                <td>1,00 €</td>
-                <td>658,00</td>
-                <td>131 600</td>
+                <td>8,99 €</td>
+                <td>655,96</td>
+                <td>124 972</td>
                 <td><a href="#" class="btn-link" data-service="Remitly">Envoyer →</a></td>
             </tr>
             <tr>
                 <td>Taptap Send</td>
-                <td>0,00 €</td>
-                <td>655,00</td>
-                <td>131 000</td>
+                <td>2,00 €</td>
+                <td>655,957</td>
+                <td>131 191</td>
                 <td><a href="#" class="btn-link" data-service="Taptap">Envoyer →</a></td>
             </tr>
             <tr>
                 <td>WorldRemit</td>
-                <td>2,99 €</td>
-                <td>654,50</td>
-                <td>129 279</td>
+                <td>2,00 €</td>
+                <td>655,957</td>
+                <td>131 191</td>
                 <td><a href="#" class="btn-link" data-service="WorldRemit">Envoyer →</a></td>
             </tr>
         </tbody>
     </table>
     <p style="font-size:0.85rem; margin-top:-15px;">
-        🔁 Dernière mise à jour : <strong id="lastUpdateText">13/06/2026</strong> – <span id="bestText" style="color:#2b9348;">✅ Remitly le moins cher aujourd'hui</span>
+        🔁 Dernière mise à jour : <strong id="lastUpdateText">13/06/2026</strong> – <span id="bestText" style="color:#2b9348;">✅ Taptap Send le moins cher aujourd'hui</span>
     </p>
 
     <!-- Graphique d'utilisation -->
@@ -241,13 +241,20 @@
     document.getElementById('dateBadge').innerText = today.toLocaleDateString('fr-FR', options);
     document.getElementById('lastUpdateText').innerText = today.toLocaleDateString('fr-FR') + ' à ' + today.getHours() + 'h' + String(today.getMinutes()).padStart(2,'0');
 
-    // Données des services (à actualiser avec les vrais taux)
+    // Données des services
     const services = [
-        { name: "Wave", fee: 1.50, rate: 655.96, affiliate: "#" },
+        { name: "Sendwave", fee: 3.00, rate: 655.96, affiliate: "#" },
         { name: "Orange Money", fee: 2.50, rate: 650.00, affiliate: "#" },
-        { name: "Remitly", fee: 1.00, rate: 658.00, affiliate: "#" },
-        { name: "Taptap Send", fee: 0.00, rate: 655.00, affiliate: "#" },
-        { name: "WorldRemit", fee: 2.99, rate: 654.50, affiliate: "#" }
+        { name: "Remitly", fee: function(amount) {
+            if (amount < 100) return 2.99;
+            if (amount < 200) return 5.99;
+            if (amount < 300) return 8.99;
+            if (amount < 500) return 12.99;
+            if (amount < 700) return 15.99;
+            return 18.99;
+        }, rate: 655.96, affiliate: "#" },
+        { name: "Taptap Send", fee: 2.00, rate: 655.957, affiliate: "#" },
+        { name: "WorldRemit", fee: 2.00, rate: 655.957, affiliate: "#" }
     ];
 
     function updateTable() {
@@ -261,15 +268,14 @@
         rows.forEach((row, i) => {
             if (i < services.length) {
                 const s = services[i];
-                const received = (amount - s.fee) * s.rate;
+                const feeValue = (typeof s.fee === 'function') ? s.fee(amount) : s.fee;
+                const received = (amount - feeValue) * s.rate;
 
-                // Mise à jour des cellules
-                row.cells[1].innerText = s.fee.toFixed(2).replace('.', ',') + ' €';
-                row.cells[2].innerText = s.rate.toFixed(2).replace('.', ',');
+                row.cells[1].innerText = feeValue.toFixed(2).replace('.', ',') + ' €';
+                row.cells[2].innerText = s.rate.toFixed(3).replace('.', ',');
                 row.cells[3].innerText = Math.round(received).toLocaleString('fr-FR') + ' FCFA';
                 row.cells[4].querySelector('a').href = s.affiliate;
 
-                // Retirer la classe 'best'
                 row.classList.remove('best');
 
                 if (received > maxReceived) {
@@ -279,19 +285,15 @@
             }
         });
 
-        // Appliquer la classe 'best' à la ligne gagnante
         rows[bestIndex].classList.add('best');
 
-        // Mettre à jour le texte "le moins cher"
         const bestText = document.getElementById('bestText');
         if (bestText) {
             bestText.innerHTML = '✅ ' + services[bestIndex].name + ' le moins cher aujourd\'hui';
         }
     }
 
-    // Écouteur sur le champ montant
     document.getElementById('amountInput').addEventListener('input', updateTable);
-    // Premier calcul au chargement
     window.addEventListener('DOMContentLoaded', updateTable);
 
     // Graphique Chart.js
