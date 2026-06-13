@@ -1,33 +1,328 @@
-// Graphique Chart.js (net et lisible)
-const ctx = document.getElementById('usageChart').getContext('2d');
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Comparateur transfert Côte d'Ivoire – Le moins cher du moment</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f8f9fc;
+            padding: 20px;
+            color: #1e2a3a;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+            padding: 20px 24px 40px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .flag { font-size: 2rem; }
+        .badge-date {
+            background: #eef2ff;
+            padding: 6px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: normal;
+            color: #1e40af;
+        }
+        .sub {
+            color: #4a5c6c;
+            border-left: 4px solid #f59e0b;
+            padding-left: 16px;
+            margin: 16px 0 24px 0;
+            font-weight: 500;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+            margin: 24px 0;
+        }
+        th, td {
+            padding: 14px 10px;
+            text-align: left;
+            border-bottom: 1px solid #e9edf2;
+        }
+        th {
+            background: #f7f9fc;
+            font-weight: 600;
+            color: #1f3a4b;
+        }
+        .best {
+            background: #e6f9ed;
+            border-left: 4px solid #2b9348;
+        }
+        .btn-link {
+            background: #0a66b9;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            transition: 0.2s;
+        }
+        .btn-link:hover {
+            background: #084c8c;
+        }
+        .graph-section {
+            background: #fefcf5;
+            border-radius: 24px;
+            padding: 20px;
+            margin: 32px 0 24px;
+            border: 1px solid #ffe4b5;
+        }
+        .graph-title {
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        canvas {
+            max-height: 260px;
+            width: 100%;
+        }
+        .insight {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #3b5c2e;
+            background: #eef6e6;
+            padding: 10px 16px;
+            border-radius: 20px;
+        }
+        .form-box {
+            background: #f0f4fa;
+            border-radius: 24px;
+            padding: 20px;
+            margin-top: 32px;
+            text-align: center;
+        }
+        .form-box p {
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        iframe {
+            border-radius: 16px;
+            background: white;
+            width: 100%;
+            border: none;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.75rem;
+            text-align: center;
+            color: #7c8b9c;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 16px; }
+            th, td { font-size: 0.8rem; padding: 10px 6px; }
+            .btn-link { padding: 5px 10px; font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>
+        <span class="flag">🇨🇮</span>
+        Envoyer de l'argent en Côte d'Ivoire
+        <span class="badge-date" id="dateBadge">chargement...</span>
+    </h1>
+    <div class="sub">
+        📊 Comparaison des frais + taux réel – Mis à jour automatiquement
+    </div>
 
-// Ajustement de la résolution pour éviter le flou
-const dpr = window.devicePixelRatio || 1;
-const canvas = document.getElementById('usageChart');
-canvas.width = canvas.clientWidth * dpr;
-canvas.height = canvas.clientHeight * dpr;
-ctx.scale(dpr, dpr);
+    <!-- Champ de montant dynamique -->
+    <div style="margin: 20px 0; display: flex; align-items: center; gap: 12px;">
+        <label for="amountInput" style="font-weight: 600;">💶 Montant envoyé (€) :</label>
+        <input type="number" id="amountInput" value="200" min="10" step="10" 
+               style="font-size: 1.2rem; width: 120px; padding: 8px; border-radius: 12px; border: 1px solid #ccc;">
+    </div>
 
-new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Sendwave', 'Orange Money', 'Remitly', 'Taptap Send', 'WorldRemit', 'Autres'],
-        datasets: [{
-            label: 'Part d’utilisation (%) – Estimations 2026',
-            data: [38, 28, 18, 8, 5, 3],
-            backgroundColor: ['#2b9348', '#f4a261', '#e76f51', '#4a6fa5', '#8d99ae', '#cccccc'],
-            borderRadius: 8,
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false, // pour contrôler la hauteur via CSS
-        plugins: {
-            legend: { position: 'top' },
-            tooltip: { callbacks: { label: (ctx) => `${ctx.raw}% des utilisateurs` } }
-        },
-        scales: {
-            y: { beginAtZero: true, max: 60, title: { display: true, text: 'Pourcentage (%)' } }
+    <!-- Tableau comparatif -->
+    <table>
+        <thead>
+            <tr><th>Service</th><th>Frais (€)</th><th>Taux (FCFA/€)</th><th>Reçu (FCFA)</th><th>Lien</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Sendwave</td>
+                <td>3,00 €</td>
+                <td>655,96</td>
+                <td>129 224</td>
+                <td><a href="#" class="btn-link" data-service="Sendwave">Envoyer →</a></td>
+            </tr>
+            <tr>
+                <td>Orange Money</td>
+                <td>2,50 €</td>
+                <td>650,00</td>
+                <td>128 375</td>
+                <td><a href="#" class="btn-link" data-service="Orange">Envoyer →</a></td>
+            </tr>
+            <tr>
+                <td>Remitly</td>
+                <td>8,99 €</td>
+                <td>655,96</td>
+                <td>124 972</td>
+                <td><a href="#" class="btn-link" data-service="Remitly">Envoyer →</a></td>
+            </tr>
+            <tr>
+                <td>Taptap Send</td>
+                <td>2,00 €</td>
+                <td>655,957</td>
+                <td>131 191</td>
+                <td><a href="#" class="btn-link" data-service="Taptap">Envoyer →</a></td>
+            </tr>
+            <tr>
+                <td>WorldRemit</td>
+                <td>2,00 €</td>
+                <td>655,957</td>
+                <td>131 191</td>
+                <td><a href="#" class="btn-link" data-service="WorldRemit">Envoyer →</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size:0.85rem; margin-top:-15px;">
+        🔁 Dernière mise à jour : <strong id="lastUpdateText">13/06/2026</strong> – <span id="bestText" style="color:#2b9348;">✅ Taptap Send le moins cher aujourd'hui</span>
+    </p>
+
+    <!-- Graphique d'utilisation -->
+    <div class="graph-section">
+        <div class="graph-title">
+            📈 Services d’envoi les plus utilisés par la diaspora (estimations 2026)
+            <span style="font-size:0.75rem;">🔍 données indicatives</span>
+        </div>
+        <canvas id="usageChart" width="400" height="200"></canvas>
+        <div class="insight">
+            💡 <strong>Sendwave</strong> et <strong>Orange Money</strong> dominent le marché, mais <strong>Remitly</strong> progresse grâce à ses offres promotionnelles régulières.
+        </div>
+    </div>
+
+    <!-- Formulaire d'inscription Tally -->
+    <div class="form-box">
+        <p>📬 Recevez le meilleur taux chaque semaine (et 1€ offert)</p>
+        <iframe data-tally-src="https://tally.so/embed/J9B644?alignLeft=1&hideTitle=1&transparentBackground=1" 
+                width="100%" height="400" loading="lazy" frameborder="0"></iframe>
+    </div>
+
+    <footer>
+        © 2026 Comparateur indépendant – Données indicatives. Les liens d'affiliation nous aident à financer l'outil.
+    </footer>
+</div>
+
+<script>
+    // Date dynamique
+    const today = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('dateBadge').innerText = today.toLocaleDateString('fr-FR', options);
+    document.getElementById('lastUpdateText').innerText = today.toLocaleDateString('fr-FR') + ' à ' + today.getHours() + 'h' + String(today.getMinutes()).padStart(2,'0');
+
+    // Données des services
+    const services = [
+        { name: "Sendwave", fee: 3.00, rate: 655.96, affiliate: "#" },
+        { name: "Orange Money", fee: 2.50, rate: 650.00, affiliate: "#" },
+        { name: "Remitly", fee: function(amount) {
+            if (amount < 100) return 2.99;
+            if (amount < 200) return 5.99;
+            if (amount < 300) return 8.99;
+            if (amount < 500) return 12.99;
+            if (amount < 700) return 15.99;
+            return 18.99;
+        }, rate: 655.96, affiliate: "#" },
+        { name: "Taptap Send", fee: 2.00, rate: 655.957, affiliate: "#" },
+        { name: "WorldRemit", fee: 2.00, rate: 655.957, affiliate: "#" }
+    ];
+
+    function updateTable() {
+        const amountInput = document.getElementById('amountInput');
+        const amount = parseFloat(amountInput.value) || 200;
+        const rows = document.querySelectorAll('tbody tr');
+
+        let bestIndex = 0;
+        let maxReceived = 0;
+
+        rows.forEach((row, i) => {
+            if (i < services.length) {
+                const s = services[i];
+                const feeValue = (typeof s.fee === 'function') ? s.fee(amount) : s.fee;
+                const received = (amount - feeValue) * s.rate;
+
+                row.cells[1].innerText = feeValue.toFixed(2).replace('.', ',') + ' €';
+                row.cells[2].innerText = s.rate.toFixed(3).replace('.', ',');
+                row.cells[3].innerText = Math.round(received).toLocaleString('fr-FR') + ' FCFA';
+                row.cells[4].querySelector('a').href = s.affiliate;
+
+                row.classList.remove('best');
+
+                if (received > maxReceived) {
+                    maxReceived = received;
+                    bestIndex = i;
+                }
+            }
+        });
+
+        rows[bestIndex].classList.add('best');
+
+        const bestText = document.getElementById('bestText');
+        if (bestText) {
+            bestText.innerHTML = '✅ ' + services[bestIndex].name + ' le moins cher aujourd\'hui';
         }
     }
-});
+
+    document.getElementById('amountInput').addEventListener('input', updateTable);
+    window.addEventListener('DOMContentLoaded', updateTable);
+
+    // Graphique Chart.js (version simple, sans ajustement de résolution)
+    const ctx = document.getElementById('usageChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Sendwave', 'Orange Money', 'Remitly', 'Taptap Send', 'WorldRemit', 'Autres'],
+            datasets: [{
+                label: 'Part d’utilisation (%) – Estimations 2026',
+                data: [38, 28, 18, 8, 5, 3],
+                backgroundColor: ['#2b9348', '#f4a261', '#e76f51', '#4a6fa5', '#8d99ae', '#cccccc'],
+                borderRadius: 8,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: { callbacks: { label: (ctx) => `${ctx.raw}% des utilisateurs` } }
+            },
+            scales: {
+                y: { beginAtZero: true, max: 60, title: { display: true, text: 'Pourcentage (%)' } }
+            }
+        }
+    });
+</script>
+<!-- Script de chargement des iframes Tally -->
+<script async src="https://tally.so/widgets/embed.js"></script>
+</body>
+</html>
