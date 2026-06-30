@@ -129,23 +129,180 @@
             padding: 10px 16px;
             border-radius: 20px;
         }
+
+        /* ==========================================
+                   NOUVEAU FORMULAIRE AMÉLIORÉ
+                   ========================================== */
         .form-box {
-            background: #f0f4fa;
+            background: linear-gradient(135deg, #f0f4fa 0%, #e8edf5 100%);
             border-radius: 24px;
-            padding: 20px;
+            padding: 30px 25px;
             margin-top: 32px;
             text-align: center;
+            border: 1px solid #dce4ec;
         }
-        .form-box p {
-            margin-bottom: 12px;
-            font-weight: 500;
+        .form-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+            color: #1e2a3a;
         }
-        iframe {
-            border-radius: 16px;
+        .form-box .sub-text {
+            font-size: 0.95rem;
+            color: #4a5c6c;
+            margin-bottom: 20px;
+        }
+        .form-box form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        .form-box input,
+        .form-box select {
+            padding: 14px 18px;
+            border-radius: 30px;
+            border: 1px solid #d0d8e0;
+            font-size: 1rem;
             background: white;
+            transition: border-color 0.2s;
             width: 100%;
-            border: none;
         }
+        .form-box input:focus,
+        .form-box select:focus {
+            outline: none;
+            border-color: #0a66b9;
+            box-shadow: 0 0 0 3px rgba(10, 102, 185, 0.15);
+        }
+        .form-box .checkbox-group {
+            text-align: left;
+            font-size: 0.9rem;
+            color: #2c3e50;
+            background: white;
+            padding: 12px 18px;
+            border-radius: 16px;
+            border: 1px solid #d0d8e0;
+        }
+        .form-box .checkbox-group label {
+            display: block;
+            padding: 4px 0;
+            cursor: pointer;
+        }
+        .form-box .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            transform: scale(1.1);
+        }
+        .form-box button {
+            background: #0a66b9;
+            color: white;
+            padding: 14px;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+        .form-box button:hover {
+            background: #084c8c;
+        }
+        .form-box .form-message {
+            margin-top: 12px;
+            font-weight: 600;
+            display: none;
+            padding: 10px;
+            border-radius: 12px;
+        }
+        .form-box .form-message.success {
+            display: block;
+            color: #2b9348;
+            background: #e6f9ed;
+        }
+        .form-box .form-message.error {
+            display: block;
+            color: #d32f2f;
+            background: #fde8e8;
+        }
+        .form-box .privacy-note {
+            font-size: 0.75rem;
+            color: #7c8b9c;
+            margin-top: 12px;
+        }
+
+        /* ==========================================
+                   SECTIONS B2B & LEAD PREMIUM
+                   ========================================== */
+        .lead-premium {
+            background: #1e2a3a;
+            color: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            border-left: 6px solid #f59e0b;
+        }
+        .lead-premium p {
+            margin: 0;
+        }
+        .lead-premium a {
+            background: #f59e0b;
+            color: #1e2a3a;
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .lead-premium a:hover {
+            background: #e08e0b;
+        }
+
+        .b2b-section {
+            background: #f0f4fe;
+            border-radius: 24px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 2px dashed #0a66b9;
+        }
+        .b2b-section .tag {
+            background: #0a66b9;
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            font-weight: 600;
+        }
+        .b2b-section h3 {
+            margin: 10px 0 5px;
+            font-size: 1.2rem;
+        }
+        .b2b-section p {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .b2b-section .btn-api {
+            background: #0a66b9;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .b2b-section .btn-api:hover {
+            background: #084c8c;
+        }
+        .b2b-section .subnote {
+            font-size: 0.7rem;
+            margin-top: 5px;
+            color: #4a5c6c;
+        }
+
         footer {
             margin-top: 40px;
             font-size: 0.75rem;
@@ -158,6 +315,7 @@
             .container { padding: 16px; }
             th, td { font-size: 0.8rem; padding: 10px 6px; }
             .btn-link { padding: 5px 10px; font-size: 0.7rem; }
+            .b2b-section { padding: 20px; }
         }
     </style>
 </head>
@@ -176,10 +334,10 @@
     </div>
 
     <!-- Champ de montant dynamique -->
-    <div style="margin: 20px 0; display: flex; align-items: center; gap: 12px;">
+    <div style="margin: 20px 0; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
         <label for="amountInput" style="font-weight: 600;">💶 Montant envoyé (€) :</label>
         <input type="number" id="amountInput" value="200" min="10" step="10" 
-               style="font-size: 1.2rem; width: 120px; padding: 8px; border-radius: 12px; border: 1px solid #ccc;">
+               style="font-size: 1.2rem; width: 140px; padding: 8px 14px; border-radius: 12px; border: 1px solid #ccc;">
     </div>
 
     <!-- Tableau comparatif -->
@@ -195,6 +353,13 @@
         🔁 Dernière mise à jour : <strong id="lastUpdateText">chargement...</strong> – <span id="bestText" style="color:#2b9348;"></span>
     </p>
 
+    <!-- SECTION LEAD PREMIUM (Cible >500€) -->
+    <div class="lead-premium">
+        <p style="font-size: 1.2rem; margin: 0;">💎 Vous envoyez plus de <strong>500 €</strong> par mois ?</p>
+        <p style="margin: 10px 0 15px; font-size: 0.95rem; opacity: 0.9;">Nos partenaires banques vous offrent des frais réduits et des conseils personnalisés.</p>
+        <a href="#formulaire-lead">🔥 Bénéficier d'un conseil gratuit</a>
+    </div>
+
     <!-- Graphique d'utilisation -->
     <div class="graph-section">
         <div class="graph-title">
@@ -207,27 +372,71 @@
         </div>
     </div>
 
-    <!-- Formulaire d'inscription Tally -->
-    <div class="form-box">
-        <p>📬 Recevez le meilleur taux chaque semaine (et 1€ offert)</p>
-        <iframe data-tally-src="https://tally.so/embed/J9B644?alignLeft=1&hideTitle=1&transparentBackground=1" 
-                width="100%" height="400" loading="lazy" frameborder="0"></iframe>
+    <!-- SECTION B2B API -->
+    <div class="b2b-section">
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 2;">
+                <span class="tag">📡 B2B</span>
+                <h3>Vous avez besoin de ces données en temps réel ?</h3>
+                <p>Accédez à notre API pour intégrer les frais Sendwave, Orange, Remitly dans vos propres outils. (500€/mois)</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+                <a href="https://transfer-api-t1py.onrender.com/docs" target="_blank" class="btn-api">🚀 Essayer l'API</a>
+                <p class="subnote">Essai gratuit 7 jours</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+    FORMULAIRE GOOGLE SHEETS (Remplace Tally)
+    ========================================== -->
+    <div class="form-box" id="formulaire-lead">
+        <h3>📊 Économisez jusqu'à 10€ par mois</h3>
+        <p class="sub-text">Recevez chaque semaine le classement des opérateurs les moins chers. Pas de spam, une alerte utile.</p>
+
+        <form id="leadForm">
+            <input type="email" id="email" placeholder="Votre adresse e-mail" required>
+            <input type="text" id="nom" placeholder="Votre nom" required>
+
+            <select id="montant" required>
+                <option value="">Montant moyen envoyé par mois</option>
+                <option value="Moins de 200€">Moins de 200€</option>
+                <option value="200€ - 500€">200€ - 500€</option>
+                <option value="500€ - 1000€">500€ - 1000€</option>
+                <option value="Plus de 1000€">Plus de 1000€</option>
+            </select>
+
+            <div class="checkbox-group">
+                <p style="margin: 0 0 6px 0; font-weight: 500;">Secteurs qui vous intéressent (facultatif) :</p>
+                <label><input type="checkbox" name="secteur" value="Assurance santé expatrié"> Assurance santé expatrié</label>
+                <label><input type="checkbox" name="secteur" value="Investissement immobilier en CI"> Investissement immobilier en Côte d'Ivoire</label>
+                <label><input type="checkbox" name="secteur" value="Offres bancaires avantageuses"> Offres bancaires avantageuses</label>
+            </div>
+
+            <button type="submit">Je veux économiser →</button>
+            <div id="formMessage" class="form-message"></div>
+            <p class="privacy-note">🔒 Vos données restent confidentielles. 1 email par semaine maximum.</p>
+        </form>
     </div>
 
     <footer>
-          © 2026 Comparateur indépendant – Données indicatives. Les liens d'affiliation nous aident à financer l'outil.<br>
-    <a href="partenaires.html" style="color:#0a66b9;">Devenir partenaire</a>
+        © 2026 Comparateur indépendant – Données mises à jour quotidiennement par notre pipeline BigQuery.<br>
+        <a href="partenaires.html" style="color:#0a66b9;">Devenir partenaire</a>
     </footer>
 </div>
 
 <script>
-    // Date dynamique
+    // =============================================
+    // DATE DYNAMIQUE
+    // =============================================
     const today = new Date();
     document.getElementById('dateBadge').innerText = today.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
 
+    // =============================================
+    // CHARGEMENT DU data.json
+    // =============================================
     let servicesData = [];
 
-    // Chargement sécurisé du data.json
     fetch('data.json')
         .then(response => {
             if (!response.ok) throw new Error('Fichier data.json non trouvé');
@@ -253,14 +462,15 @@
             updateTable();
         });
 
-    // Construire le tableau dynamiquement avec les promos
+    // =============================================
+    // CONSTRUCTION DU TABLEAU
+    // =============================================
     function buildTable() {
         const tbody = document.getElementById('tableBody');
         tbody.innerHTML = '';
         servicesData.forEach(service => {
             const tr = document.createElement('tr');
             let serviceCell = service.name;
-            // Ajouter la bannière promo si applicable
             if (service.name === "Taptap Send") {
                 serviceCell += '<span class="promo-badge">🎁 10€ offerts (nouveaux clients) – code JOELL823</span>';
             } else if (service.name === "Sendwave") {
@@ -277,7 +487,6 @@
         });
     }
 
-    // Calculer les frais (fixe ou grille)
     function getFee(service, amount) {
         if (service.fee_special && service.fee_special.function) {
             const thresholds = service.fee_special.thresholds;
@@ -325,7 +534,9 @@
 
     document.getElementById('amountInput').addEventListener('input', updateTable);
 
-    // Graphique
+    // =============================================
+    // GRAPHIQUE
+    // =============================================
     const ctx = document.getElementById('usageChart').getContext('2d');
     new Chart(ctx, {
         type: 'bar',
@@ -350,8 +561,58 @@
             }
         }
     });
+
+    // =============================================
+    // ENVOI DU FORMULAIRE VERS GOOGLE SHEETS
+    // =============================================
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value.trim();
+        const nom = document.getElementById('nom').value.trim();
+        const montant = document.getElementById('montant').value;
+        const secteur = document.querySelector('input[name="secteur"]:checked')?.value || 'Non précisé';
+
+        // Validation rapide
+        if (!email || !nom || !montant) {
+            const msg = document.getElementById('formMessage');
+            msg.className = 'form-message error';
+            msg.textContent = '❌ Veuillez remplir tous les champs obligatoires.';
+            return;
+        }
+
+        // --- URL DE TON APPS SCRIPT (à remplacer par la tienne) ---
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx5RE5_KmcJUCSu_ruP4-LLm3A1cZWYLpgNm5FNLE8TE7iNy09szR33BrH9HIScbSZvlQ/exec';
+
+        const data = {
+            email: email,
+            nom: nom,
+            montant: montant,
+            secteur: secteur
+        };
+
+        const msg = document.getElementById('formMessage');
+        msg.className = 'form-message';
+        msg.textContent = '⏳ Envoi en cours...';
+        msg.style.display = 'block';
+
+        fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(() => {
+            msg.className = 'form-message success';
+            msg.textContent = '✅ Merci ! Vous recevrez votre première alerte cette semaine.';
+            document.getElementById('leadForm').reset();
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+            msg.className = 'form-message error';
+            msg.textContent = '❌ Une erreur est survenue. Veuillez réessayer.';
+        });
+    });
 </script>
-<!-- Script de chargement des iframes Tally -->
-<script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
