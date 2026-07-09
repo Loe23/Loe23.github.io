@@ -53,6 +53,12 @@
             line-height: 1.6;
             margin-bottom: 20px;
         }
+        .contact-links a {
+            color: #0a66b9;
+            text-decoration: none;
+            font-weight: 500;
+            margin-right: 20px;
+        }
 
         /* ==========================================
            BLOC API (LE PRODUIT)
@@ -156,6 +162,9 @@
             text-decoration: none;
             font-weight: 600;
         }
+        .project-card a:hover {
+            text-decoration: underline;
+        }
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -167,12 +176,6 @@
             padding: 6px 16px;
             border-radius: 30px;
             font-size: 0.85rem;
-        }
-        .contact-links a {
-            color: #0a66b9;
-            text-decoration: none;
-            font-weight: 500;
-            margin-right: 20px;
         }
         @media (max-width: 700px) {
             h1 { font-size: 1.8rem; }
@@ -224,40 +227,48 @@
     </div>
 
     <!-- ==========================================
-    PROJETS DATA (POUR LES RECRUTEURS)
+    PROJETS DATA ANALYST
     ========================================== -->
     <div class="card">
         <h2 style="margin-bottom: 15px;">📊 Projets Data Analyst</h2>
         <div class="grid">
+            <!-- PROJET 1 : ECOMMERCE FACTORY PRO -->
             <div class="project-card">
                 <h3>🚀 Ecommerce Factory Pro</h3>
                 <div class="meta">Pipeline Airflow / Docker / PostgreSQL</div>
                 <p style="font-size:0.9rem;">Détection automatique de ruptures de stock. Génération de rapports HTML industrialisés.</p>
-                <a href="#">🔗 Voir le produit</a>
+                <a href="https://payhip.com/..." target="_blank">🔗 Voir le produit</a>
+                <!-- ⚠️ Remplace https://payhip.com/... par ton vrai lien Payhip -->
             </div>
+
+            <!-- PROJET 2 : OPTIMISATION MARKETING ORANGE -->
             <div class="project-card">
                 <h3>📈 Optimisation marketing Orange</h3>
                 <div class="meta">Python / Power BI – ROI 245%</div>
                 <p style="font-size:0.9rem;">Segmentation client et recommandations d'allocation budgétaire (Email +20%, SMS +15%).</p>
-                <a href="#">🔗 Voir le projet</a>
+                <a href="projet-campagnes-orange/">🔗 Voir le projet</a>
             </div>
+
+            <!-- PROJET 3 : ANALYSE RGPD CARREFOUR -->
             <div class="project-card">
                 <h3>🔒 Analyse RGPD Carrefour</h3>
                 <div class="meta">BigQuery / Looker Studio</div>
                 <p style="font-size:0.9rem;">Identification du canal Direct (46% du CA) et analyse du parcours client conforme RGPD.</p>
-                <a href="#">🔗 Voir le projet</a>
+                <a href="projet-marketing-rgpd-carrefour/">🔗 Voir le projet</a>
             </div>
+
+            <!-- PROJET 4 : ANALYSE GEOSPATIALE TRANSPORTS -->
             <div class="project-card">
                 <h3>🗺️ Analyse géospatiale des transports</h3>
                 <div class="meta">Python / Pandas / Folium</div>
                 <p style="font-size:0.9rem;">Exploration de 707 arrêts de transport public en Normandie. Cartographie interactive.</p>
-                <a href="#">🔗 Voir le projet</a>
+                <a href="projet-transports-normandie/">🔗 Voir le projet</a>
             </div>
         </div>
     </div>
 
     <!-- ==========================================
-    COMPÉTENCES & CONTACT
+    COMPÉTENCES
     ========================================== -->
     <div class="card">
         <h2 style="margin-bottom: 10px;">🛠️ Compétences clés</h2>
