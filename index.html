@@ -81,7 +81,6 @@
             text-decoration: underline;
         }
 
-        /* --- SECTION EXPÉRIENCES (COMME UN CV) --- */
         .exp-grid {
             display: flex;
             flex-direction: column;
@@ -129,7 +128,6 @@
             color: #1e40af;
         }
 
-        /* --- BLOC PROJET PHARE (API) --- */
         .api-block {
             background: linear-gradient(145deg, #0a1628, #1a2a4a);
             color: white;
@@ -202,7 +200,6 @@
             color: #0a1628;
         }
 
-        /* --- PROJETS (PORTFOLIO) --- */
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -244,6 +241,7 @@
         .project-card a:hover {
             text-decoration: underline;
         }
+
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -259,7 +257,6 @@
             color: #1e2a3a;
         }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 750px) {
             h1 { font-size: 1.8rem; }
             .grid { grid-template-columns: 1fr; }
@@ -269,6 +266,7 @@
             .header-flex { flex-direction: column; }
             .subtitle { font-size: 1.1rem; }
         }
+
         .footer-note {
             margin-top: 20px;
             border-top: 1px solid #e9edf2;
@@ -294,12 +292,26 @@
             color: #0a66b9;
             display: inline-block;
         }
+
+        .btn-cv {
+            background: #0a66b9;
+            color: white !important;
+            padding: 12px 40px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .btn-cv:hover {
+            background: #004182;
+        }
     </style>
 </head>
 <body>
 
     <!-- ==========================================
-    IDENTITÉ & PROFIL (Senior BI - CDI)
+    IDENTITÉ & PROFIL
     ========================================== -->
     <div class="card">
         <div class="header-flex">
@@ -337,13 +349,12 @@
     </div>
 
     <!-- ==========================================
-    EXPÉRIENCES CLÉS (TIMELINE CV)
+    EXPÉRIENCES
     ========================================== -->
     <div class="card">
         <h2 style="margin-bottom: 15px; font-size: 1.4rem;">📋 Expériences clés</h2>
         <div class="exp-grid">
 
-            <!-- ORANGE -->
             <div class="exp-item">
                 <div class="exp-left">
                     <span class="title">Data Analyst</span><br>
@@ -355,7 +366,6 @@
                 </div>
             </div>
 
-            <!-- MALAKOFF -->
             <div class="exp-item">
                 <div class="exp-left">
                     <span class="title">Data Analyst BI (CDD)</span><br>
@@ -367,7 +377,6 @@
                 </div>
             </div>
 
-            <!-- ALIIVE -->
             <div class="exp-item">
                 <div class="exp-left">
                     <span class="title">Data Analyst & Engineer</span><br>
@@ -379,7 +388,6 @@
                 </div>
             </div>
 
-            <!-- PROJETS AUTONOMES -->
             <div class="exp-item">
                 <div class="exp-left">
                     <span class="title">Projets Data & Analytics</span><br>
@@ -394,7 +402,7 @@
     </div>
 
     <!-- ==========================================
-    PROJET PHARE : API (REFRAME)
+    PROJET PHARE : API
     ========================================== -->
     <div class="card" style="padding-bottom: 10px;">
         <h2 style="margin-bottom: 5px; font-size: 1.4rem;">🚀 Projet phare</h2>
@@ -416,14 +424,13 @@
     </div>
 
     <!-- ==========================================
-    PORTFOLIO PROJETS (ÉTUDES DE CAS)
+    PORTFOLIO
     ========================================== -->
     <div class="card">
         <h2 style="margin-bottom: 5px; font-size: 1.4rem;">📊 Portfolio – Études de cas</h2>
         <p style="color: #4a5c6c; margin-bottom: 15px; font-size: 0.95rem;">Projets réalisés en autonomie pour illustrer mon expertise technique et métier.</p>
         
         <div class="grid">
-            <!-- PROJET 1 : ECOMMERCE FACTORY -->
             <div class="project-card">
                 <h3>📦 Ecommerce Factory</h3>
                 <div class="meta">Pipeline d'alerte rupture de stock</div>
@@ -431,28 +438,25 @@
                 <a href="https://loe23.github.io" target="_blank">🔗 Voir l'étude de cas</a>
             </div>
 
-            <!-- PROJET 2 : OPTIMISATION ORANGE -->
             <div class="project-card">
                 <h3>📈 Optimisation marketing Orange</h3>
                 <div class="meta">ROI 245% sur les campagnes Email</div>
                 <p><strong>Stack :</strong> Python (Jupyter), Power BI. Segmentation client et recommandations budgétaires (Email +20%, SMS +15%).</p>
-                <a href="https://loe23.github.io/projet-campagnes-orange/" target="_blank">🔗 Voir le projet</a>
+                <a href="https://loe23.github.io" target="_blank">🔗 Voir le projet</a>
             </div>
 
-            <!-- PROJET 3 : RGPD CARREFOUR -->
             <div class="project-card">
                 <h3>🔒 Analyse RGPD Carrefour</h3>
                 <div class="meta">Identification du canal Direct (46% CA)</div>
                 <p><strong>Stack :</strong> BigQuery, SQL, Looker Studio. Analyse du parcours client conforme RGPD.</p>
-                <a href="https://loe23.github.io/projet-marketing-rgpd-carrefour/" target="_blank">🔗 Voir le projet</a>
+                <a href="https://loe23.github.io" target="_blank">🔗 Voir le projet</a>
             </div>
 
-            <!-- PROJET 4 : TRANSPORTS -->
             <div class="project-card">
                 <h3>🗺️ Analyse géospatiale Normandie</h3>
                 <div class="meta">707 arrêts de transport public</div>
                 <p><strong>Stack :</strong> Python, Pandas, Folium. Cartographie interactive et statistiques de distribution.</p>
-                <a href="https://loe23.github.io/projet-transports-normandie/" target="_blank">🔗 Voir le projet</a>
+                <a href="https://loe23.github.io" target="_blank">🔗 Voir le projet</a>
             </div>
         </div>
     </div>
@@ -470,7 +474,6 @@
             <span>Airflow</span>
             <span>Docker</span>
             <span>Looker Studio</span>
-            <span>Tableau</span>
             <span>FastAPI</span>
             <span>PostgreSQL</span>
         </div>
@@ -485,11 +488,11 @@
             Disponible sur Paris ou en mobilité nationale. N'hésitez pas à me contacter pour échanger sur vos besoins Data.
         </p>
         <div style="margin-top: 15px;">
-            <a href="mailto:loegnali@gmail.com" style="background: #0a66b9; color: white; padding: 12px 40px; border-radius: 40px; text-decoration: none; font-weight: 600; display: inline-block;">📧 Me contacter</a>
+            <a href="mailto:loegnali@gmail.com" class="btn-cv">📧 Me contacter</a>
             <a href="https://www.linkedin.com/in/joel-gnall/" target="_blank" style="margin-left: 15px; color: #0a66b9; font-weight: 600; text-decoration: none;">🔗 Voir mon LinkedIn</a>
         </div>
-        <div style="margin-top: 15px; font-size: 0.85rem; color: #4a5c6c;">
-            📄 Télécharger mon CV sur demande.
+        <div style="margin-top: 15px; font-size: 0.9rem; color: #4a5c6c;">
+            📄 Télécharger mon CV sur demande (disponible en PDF).
         </div>
     </div>
 
