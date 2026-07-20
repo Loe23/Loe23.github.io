@@ -1,46 +1,62 @@
-# Portfolio – Joël Gnali LOE  
-**Data Analyst | BI Consultant | Analytics Engineer**
+# 👋 Joël Gnali LOE — Senior Data Analyst | BI Engineer
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0a66b9?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joel-gnall/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-1e2a3a?style=flat&logo=github&logoColor=white)](https://loe23.github.io)
+[![Email](https://img.shields.io/badge/Email-loegnali@gmail.com-blue?style=flat&logo=gmail)](mailto:loegnali@gmail.com)
 
 ---
 
-## 🚀 Projet phare : Ecommerce Factory Pro  
-*Détection automatique de ruptures de stock*
+## 🧑‍💻 À propos de moi
 
-Pipeline complet avec **Apache Airflow**, **Docker**, **Python** et **PostgreSQL**.  
-- Lit un fichier CSV (produit, quantité, seuil)  
-- Détecte les stocks critiques  
-- Génère un rapport HTML  
+**Data Analyst & BI Engineer** avec **plus de 6 ans d'expérience** dans des secteurs variés :
 
-🔗 [Voir le produit en vente](https://payhip.com/b/6Hb1V)
+- 📡 **Télécom** – Orange (4 ans)
+- 🛡️ **Assurance** – Malakoff Humanis (1 an)
+- 🍏 **Foodtech** – Aliive (9 mois)
 
-![Rapport HTML](rapport_alertes.png.jpg))
+🎯 **Actuellement en recherche active d'un CDI** en tant que **Senior Data Analyst**, **BI Engineer** ou **Analytics Engineer**.
 
----
-
-## 📊 Compétences clés
-
-- **BI & Visualisation** : Power BI (niveau avancé – connexion BigQuery, DAX de base), Tableau, Looker Studio, Excel avancé  
-- **Bases de données & Cloud** : SQL (PostgreSQL, SQL Server), **BigQuery** (bonne maîtrise – requêtes, connexion à Looker Studio et Power BI)  
-- **Langages & orchestration** : Python (pandas, numpy), Airflow, Docker  
-- **Data modeling & ETL** : modélisation, transformation, qualité des données
----
-
-## 💼 Expériences sélectionnées
-
-- **Data Analyst BI Consultant** – Malakoff Humans (2023-2024)  
-- **Analyste de données clients** – Orange Côte d’Ivoire (2018-2020)  
-
-## 📊 Mes projets Data Analyst
-
-- [Optimisation des campagnes marketing (Orange)](./projet-campagnes-orange) – Python, Power BI
-- [Analyse marketing RGPD-compliant (Carrefour)](./projet-marketing-rgpd-carrefour) – BigQuery, Looker Studio
-- [Analyse géospatiale des transports normands](./projet-transports-normandie) – Python, Folium
-
-📄 [Voir mon CV complet sur demande]
+📍 Paris & Mobilité nationale
 
 ---
 
-## 📫 Contact
+## 🛠️ Compétences techniques
 
-📧 loegnali@gmail.com  
-🔗 [LinkedIn](https://www.linkedin.com/in/joel-gnali-loe)
+| Domaine | Technologies |
+|---------|--------------|
+| **BI & Visualisation** | Power BI (Expert), Looker Studio, Tableau |
+| **Langages** | SQL (Expert), Python (Pandas, NumPy, FastAPI) |
+| **Cloud & Data Engineering** | BigQuery, Airflow, Docker, PostgreSQL, Render |
+| **Méthodologies** | ETL/ELT, Modélisation dimensionnelle, RGPD, Agile |
+
+---
+
+## 📦 Projets phares
+
+| Projet | Description | Stack | Lien |
+|--------|-------------|-------|------|
+| **API Veille concurrentielle** | API REST sécurisée pour le suivi des frais de transfert. Pipeline ETL automatisé, doc Swagger, déployée sur Render. | FastAPI, BigQuery, Python, Render | [Voir →](https://loe23.github.io/#projet-orange) |
+| **Ecommerce Factory** | Pipeline d'alerte de rupture de stock. Orchestration Airflow, conteneurisation Docker, rapports HTML automatisés. | Airflow, Docker, PostgreSQL, Python | [Voir →](https://loe23.github.io/#projet-ecommerce) |
+| **Optimisation marketing Orange** | Simulation de 2000 campagnes. ROI Email identifié à 245%. Recommandations budgétaires. | Python, Power BI | [Voir →](https://loe23.github.io/#projet-orange) |
+| **Analyse RGPD Carrefour** | Analyse des canaux marketing RGPD-compliant. Canal Direct = 46% du CA. | BigQuery, SQL, Looker Studio | [Voir →](https://loe23.github.io/#projet-carrefour) |
+| **Analyse géospatiale Normandie** | Cartographie interactive de 707 arrêts de transport public. | Python, Pandas, Folium | [Voir →](https://loe23.github.io/#projet-transports) |
+
+---
+
+## 📂 Ce que vous trouverez ici
+
+Ce dépôt contient le code source de mon **portfolio personnel** (`index.html`), ainsi que des scripts et projets annexes que j'ai développés en autonomie.
+
+> 📌 *L'ensemble de mes projets est présenté sous forme d'études de cas sur mon [site portfolio](https://loe23.github.io).*
+
+---
+
+## 📫 Me contacter
+
+- 📧 **Email** : loegnali@gmail.com
+- 🔗 **LinkedIn** : [linkedin.com/in/joel-gnall](https://www.linkedin.com/in/joel-gnall/)
+- 🌐 **Portfolio** : [loe23.github.io](https://loe23.github.io)
+
+---
+
+*"Je transforme la data en décisions business."*
