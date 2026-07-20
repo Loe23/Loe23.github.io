@@ -5,198 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joël LOE – Senior Data Analyst & BI Engineer</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fc;
-            padding: 40px 20px;
-            color: #1e2a3a;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .card {
-            background: white;
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .badge {
-            background: #eef2ff;
-            color: #1e40af;
-            font-size: 0.9rem;
-            padding: 4px 14px;
-            border-radius: 30px;
-            font-weight: 600;
-        }
-        .badge-green {
-            background: #dcfce7;
-            color: #166534;
-        }
-        .subtitle {
-            font-size: 1.2rem;
-            color: #4a5c6c;
-            border-left: 4px solid #f59e0b;
-            padding-left: 16px;
-            margin-bottom: 20px;
-        }
-        .intro {
-            color: #2c3e50;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .contact-links a {
-            color: #0a66b9;
-            text-decoration: none;
-            font-weight: 500;
-            margin-right: 20px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fc; padding: 40px 20px; color: #1e2a3a; max-width: 1000px; margin: 0 auto; }
+        .card { background: white; border-radius: 24px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; border: 1px solid #eef2f6; }
+        h1 { font-size: 2.5rem; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+        .badge { background: #eef2ff; color: #1e40af; font-size: 0.85rem; padding: 4px 14px; border-radius: 30px; font-weight: 600; }
+        .badge-green { background: #dcfce7; color: #166534; }
+        .subtitle { font-size: 1.2rem; color: #4a5c6c; border-left: 4px solid #f59e0b; padding-left: 16px; margin-bottom: 20px; }
+        .intro { line-height: 1.7; font-size: 1.05rem; margin-bottom: 20px; }
+        .contact-links a { color: #0a66b9; text-decoration: none; font-weight: 500; margin-right: 20px; }
 
-        .api-block {
-            background: linear-gradient(145deg, #0a1628, #1a2a4a);
-            color: white;
-            border-radius: 20px;
-            padding: 30px 35px;
-            margin: 30px 0;
-            border-left: 8px solid #f59e0b;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            transition: transform 0.2s;
-        }
-        .api-block:hover {
-            transform: scale(1.01);
-        }
-        .api-text {
-            flex: 2;
-        }
-        .api-text .tag {
-            background: #f59e0b;
-            color: #0a1628;
-            padding: 2px 14px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 6px;
-        }
-        .api-text h2 {
-            font-size: 1.5rem;
-            margin-bottom: 6px;
-        }
-        .api-text p {
-            opacity: 0.85;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-        }
-        .api-btn {
-            background: #f59e0b;
-            color: #0a1628;
-            padding: 12px 30px;
-            border-radius: 40px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.2s;
-            font-size: 1rem;
-        }
-        .api-btn:hover {
-            background: #d48b0a;
-        }
-        .api-btn-outline {
-            background: transparent;
-            border: 2px solid #f59e0b;
-            color: white;
-            padding: 10px 28px;
-            border-radius: 40px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            margin-left: 10px;
-            transition: background 0.2s;
-        }
-        .api-btn-outline:hover {
-            background: #f59e0b;
-            color: #0a1628;
-        }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
+        .project-card { background: #f7f9fc; padding: 20px; border-radius: 16px; border: 1px solid #e9edf2; }
+        .project-card h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .project-card .meta { font-size: 0.85rem; color: #4a5c6c; margin-bottom: 8px; }
+        .project-card p { font-size: 0.9rem; line-height: 1.5; color: #2c3e50; margin-bottom: 10px; }
+        .project-card a { color: #0a66b9; text-decoration: none; font-weight: 600; }
+        .project-card a:hover { text-decoration: underline; }
 
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 15px;
-        }
-        .project-card {
-            background: #f7f9fc;
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid #e9edf2;
-        }
-        .project-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 4px;
-        }
-        .project-card .meta {
-            font-size: 0.85rem;
-            color: #4a5c6c;
-            margin-bottom: 8px;
-        }
-        .project-card a {
-            color: #0a66b9;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .project-card a:hover {
-            text-decoration: underline;
-        }
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 10px 0;
-        }
-        .skills-grid span {
-            background: #e9edf2;
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-        }
-        @media (max-width: 700px) {
-            h1 { font-size: 1.8rem; }
-            .grid { grid-template-columns: 1fr; }
-            .api-block { flex-direction: column; text-align: center; }
-            .api-btn-outline { margin-left: 0; margin-top: 10px; }
-        }
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0; }
+        .skills-grid span { background: #e9edf2; padding: 6px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 500; }
+
+        .btn-cv { background: #0a66b9; color: white; padding: 12px 40px; border-radius: 40px; text-decoration: none; font-weight: 600; display: inline-block; transition: background 0.2s; }
+        .btn-cv:hover { background: #004182; }
+
+        @media (max-width: 700px) { h1 { font-size: 1.8rem; } .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-    <!-- ==========================================
-    IDENTITÉ & PROFIL
-    ========================================== -->
     <div class="card">
         <h1>
             Joël Gnali LOE
             <span class="badge">+ de 6 ans</span>
             <span class="badge badge-green">🔍 CDI</span>
         </h1>
-        <div class="subtitle">
-            Senior Data Analyst | BI Engineer – Power BI, SQL, Python, BigQuery
-        </div>
+        <div class="subtitle">Senior Data Analyst | BI Engineer – Power BI, SQL, Python, BigQuery</div>
         <div class="intro">
             <p><strong>Je transforme la data en décisions business.</strong> Avec plus de 6 ans d'expérience dans des secteurs variés (<strong>Télécom</strong> – Orange, <strong>Assurance</strong> – Malakoff Humanis, <strong>Foodtech</strong> – Aliive), j'accompagne les directions métier dans l'automatisation de leurs reportings stratégiques et la conception de dashboards Power BI.</p>
             <p style="margin-top:10px;">🎯 <strong>Ma cible :</strong> Un CDI en tant que <strong>Senior Data Analyst, BI Engineer ou Analytics Engineer</strong> – Paris ou mobilité nationale.</p>
@@ -208,67 +52,38 @@
         </div>
     </div>
 
-    <!-- ==========================================
-    PROJET PHARE : API
-    ========================================== -->
-    <div class="api-block">
-        <div class="api-text">
-            <span class="tag">📡 API – Veille concurrentielle</span>
-            <h2>Suivi automatisé des transferts d'argent</h2>
-            <p>
-                Développement d'une API REST sécurisée (FastAPI) pour le suivi quotidien des frais de transfert vers l'Afrique de l'Ouest.
-                <strong>Pipeline ETL automatisé (Python, BigQuery), documentation Swagger, déployée en production sur Render.</strong>
-            </p>
-            <div style="margin-top: 10px;">
-                <a href="https://transfer-api-t1py.onrender.com/docs" target="_blank" class="api-btn">📖 Documentation API</a>
-                <a href="https://github.com/loe23/transfer-api" target="_blank" class="api-btn-outline">🐙 Voir le code</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==========================================
-    PROJETS DATA ANALYST (AVEC LIENS VERS DOSSIERS)
-    ========================================== -->
     <div class="card">
-        <h2 style="margin-bottom: 15px;">📊 Portfolio – Études de cas</h2>
+        <h2 style="margin-bottom: 15px;">📊 Projets – Études de cas</h2>
         <div class="grid">
-
             <div class="project-card">
                 <h3>📦 Ecommerce Factory</h3>
                 <div class="meta">Airflow / Docker / PostgreSQL</div>
-                <p style="font-size:0.9rem;">Pipeline d'alerte rupture de stock – génération automatisée de rapports HTML quotidiens.</p>
+                <p>Pipeline d'alerte rupture de stock – rapports HTML quotidiens.</p>
                 <a href="https://loe23.github.io">🔗 Voir le projet</a>
             </div>
-
             <div class="project-card">
                 <h3>📈 Optimisation marketing Orange</h3>
                 <div class="meta">Python / Power BI – ROI 245%</div>
-                <p style="font-size:0.9rem;">Segmentation client et recommandations d'allocation budgétaire (Email +20%, SMS +15%).</p>
-                <a href="projet-campagnes-orange/">🔗 Voir le projet</a>
+                <p>Segmentation client – recommandations budgétaires.</p>
+                <a href="https://loe23.github.io">🔗 Voir le projet</a>
             </div>
-
             <div class="project-card">
                 <h3>🔒 Analyse RGPD Carrefour</h3>
                 <div class="meta">BigQuery / SQL / Looker Studio</div>
-                <p style="font-size:0.9rem;">Identification du canal Direct (46% du CA) – analyse conforme RGPD.</p>
-                <a href="projet-marketing-rgpd-carrefour/">🔗 Voir le projet</a>
+                <p>Identification du canal Direct (46% CA) – RGPD.</p>
+                <a href="https://loe23.github.io">🔗 Voir le projet</a>
             </div>
-
             <div class="project-card">
                 <h3>🗺️ Analyse géospatiale Normandie</h3>
                 <div class="meta">Python / Pandas / Folium</div>
-                <p style="font-size:0.9rem;">Exploration de 707 arrêts de transport public – cartographie interactive.</p>
-                <a href="projet-transports-normandie/">🔗 Voir le projet</a>
+                <p>707 arrêts – cartographie interactive.</p>
+                <a href="https://loe23.github.io">🔗 Voir le projet</a>
             </div>
-
         </div>
     </div>
 
-    <!-- ==========================================
-    COMPÉTENCES
-    ========================================== -->
     <div class="card">
-        <h2 style="margin-bottom: 10px;">🛠️ Compétences clés</h2>
+        <h2 style="margin-bottom: 10px;">🛠️ Compétences techniques</h2>
         <div class="skills-grid">
             <span>Power BI (Expert)</span>
             <span>SQL (Expert)</span>
@@ -280,8 +95,14 @@
             <span>FastAPI</span>
             <span>PostgreSQL</span>
         </div>
-        <div style="margin-top: 20px; border-top: 1px solid #e9edf2; padding-top: 20px; text-align: center; color: #4a5c6c;">
-            📩 <a href="mailto:loegnali@gmail.com" style="color:#0a66b9; font-weight:600;">loegnali@gmail.com</a>
+    </div>
+
+    <div class="card" style="text-align:center; background:#f0f7ff;">
+        <h3 style="margin-bottom:8px;">📩 Je suis en recherche active d'un CDI</h3>
+        <p style="color:#1e2a3a; font-size:1.05rem;">Disponible sur Paris ou en mobilité nationale.</p>
+        <div style="margin-top:15px;">
+            <a href="mailto:loegnali@gmail.com" class="btn-cv">📧 Me contacter</a>
+            <a href="https://www.linkedin.com/in/joel-gnall/" target="_blank" style="margin-left:15px; color:#0a66b9; font-weight:600; text-decoration:none;">🔗 LinkedIn</a>
         </div>
     </div>
 
