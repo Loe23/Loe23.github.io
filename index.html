@@ -494,6 +494,18 @@
             📄 Télécharger mon CV sur demande (disponible en PDF).
         </div>
     </div>
-
+<script>
+// Force le défilement vers l'ancre après le chargement de la page
+window.addEventListener('load', function() {
+    if (window.location.hash) {
+        setTimeout(function() {
+            var target = document.querySelector(window.location.hash);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 600);
+    }
+});
+</script>
 </body>
 </html>
