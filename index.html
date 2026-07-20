@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joël LOE – Consultant Data & Analytics Engineer</title>
+    <title>Joël LOE – Senior Data Analyst & BI Engineer</title>
     <style>
         * {
             margin: 0;
@@ -12,10 +12,10 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fc;
+            background: #f4f7fc;
             padding: 40px 20px;
             color: #1e2a3a;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         .card {
@@ -24,51 +24,118 @@
             padding: 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             margin-bottom: 30px;
+            border: 1px solid #eef2f6;
+        }
+        .header-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
         }
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 8px;
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .badges {
             display: flex;
-            align-items: center;
-            gap: 12px;
             flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 6px;
         }
         .badge {
             background: #eef2ff;
             color: #1e40af;
-            font-size: 0.9rem;
-            padding: 4px 14px;
+            font-size: 0.8rem;
+            padding: 6px 16px;
             border-radius: 30px;
             font-weight: 600;
         }
+        .badge-green {
+            background: #dcfce7;
+            color: #166534;
+        }
         .subtitle {
-            font-size: 1.2rem;
-            color: #4a5c6c;
-            border-left: 4px solid #f59e0b;
-            padding-left: 16px;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0a66b9;
+            margin-bottom: 12px;
+            border-left: 5px solid #f59e0b;
+            padding-left: 18px;
         }
         .intro {
             color: #2c3e50;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1.05rem;
             margin-bottom: 20px;
         }
         .contact-links a {
             color: #0a66b9;
             text-decoration: none;
             font-weight: 500;
-            margin-right: 20px;
+            margin-right: 25px;
+            font-size: 1rem;
+        }
+        .contact-links a:hover {
+            text-decoration: underline;
         }
 
-        /* ==========================================
-           BLOC API (LE PRODUIT)
-           ========================================== */
+        /* --- SECTION EXPÉRIENCES (COMME UN CV) --- */
+        .exp-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin: 20px 0 10px 0;
+        }
+        .exp-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .exp-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .exp-left {
+            width: 260px;
+            flex-shrink: 0;
+        }
+        .exp-left .title {
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+        .exp-left .company {
+            font-weight: 600;
+            color: #0a66b9;
+        }
+        .exp-left .date {
+            font-size: 0.85rem;
+            color: #4a5c6c;
+            display: block;
+        }
+        .exp-right {
+            flex: 1;
+        }
+        .exp-right p {
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .highlight {
+            font-weight: 600;
+            color: #1e40af;
+        }
+
+        /* --- BLOC PROJET PHARE (API) --- */
         .api-block {
             background: linear-gradient(145deg, #0a1628, #1a2a4a);
             color: white;
             border-radius: 20px;
             padding: 30px 35px;
-            margin: 30px 0;
+            margin: 25px 0 0 0;
             border-left: 8px solid #f59e0b;
             display: flex;
             flex-wrap: wrap;
@@ -87,11 +154,12 @@
             color: #0a1628;
             padding: 2px 14px;
             border-radius: 30px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             display: inline-block;
             margin-bottom: 6px;
+            letter-spacing: 0.5px;
         }
         .api-text h2 {
             font-size: 1.5rem;
@@ -101,6 +169,7 @@
             opacity: 0.85;
             margin-bottom: 12px;
             font-size: 0.95rem;
+            line-height: 1.6;
         }
         .api-btn {
             background: #f59e0b;
@@ -111,7 +180,7 @@
             text-decoration: none;
             display: inline-block;
             transition: background 0.2s;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
         .api-btn:hover {
             background: #d48b0a;
@@ -125,7 +194,7 @@
             font-weight: 600;
             text-decoration: none;
             display: inline-block;
-            margin-left: 10px;
+            margin-left: 12px;
             transition: background 0.2s;
         }
         .api-btn-outline:hover {
@@ -133,9 +202,7 @@
             color: #0a1628;
         }
 
-        /* ==========================================
-           PROJETS & COMPÉTENCES
-           ========================================== */
+        /* --- PROJETS (PORTFOLIO) --- */
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -144,23 +211,35 @@
         }
         .project-card {
             background: #f7f9fc;
-            padding: 20px;
+            padding: 22px;
             border-radius: 16px;
             border: 1px solid #e9edf2;
+            transition: box-shadow 0.2s;
+        }
+        .project-card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
         }
         .project-card h3 {
             font-size: 1.1rem;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
         .project-card .meta {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #4a5c6c;
             margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .project-card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #2c3e50;
+            margin-bottom: 10px;
         }
         .project-card a {
             color: #0a66b9;
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.9rem;
         }
         .project-card a:hover {
             text-decoration: underline;
@@ -169,99 +248,211 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin: 10px 0;
+            margin: 10px 0 5px 0;
         }
         .skills-grid span {
             background: #e9edf2;
-            padding: 6px 16px;
+            padding: 6px 18px;
             border-radius: 30px;
             font-size: 0.85rem;
+            font-weight: 500;
+            color: #1e2a3a;
         }
-        @media (max-width: 700px) {
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 750px) {
             h1 { font-size: 1.8rem; }
             .grid { grid-template-columns: 1fr; }
             .api-block { flex-direction: column; text-align: center; }
             .api-btn-outline { margin-left: 0; margin-top: 10px; }
+            .exp-left { width: 100%; margin-bottom: 6px; }
+            .header-flex { flex-direction: column; }
+            .subtitle { font-size: 1.1rem; }
+        }
+        .footer-note {
+            margin-top: 20px;
+            border-top: 1px solid #e9edf2;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 1rem;
+            color: #1e2a3a;
+        }
+        .footer-note a {
+            color: #0a66b9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+        .mobility {
+            background: #f0f7ff;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #0a66b9;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
 
     <!-- ==========================================
-    IDENTITÉ & PROFIL (Version Consultant)
+    IDENTITÉ & PROFIL (Senior BI - CDI)
     ========================================== -->
     <div class="card">
-        <h1>
-            Joël Gnali LOE
-            <span class="badge">6 ans d'expérience</span>
-        </h1>
+        <div class="header-flex">
+            <div>
+                <h1>Joël Gnali LOE</h1>
+                <div class="badges">
+                    <span class="badge">+ de 6 ans d'expérience</span>
+                    <span class="badge badge-green">🔍 En recherche active de CDI</span>
+                    <span class="badge">📍 Paris & Mobilité nationale</span>
+                </div>
+            </div>
+        </div>
+
         <div class="subtitle">
-            Consultant Data & Analytics Engineer | Python, SQL, BigQuery, Power BI
+            Senior Data Analyst | BI Engineer – Power BI, SQL, Python, BigQuery
         </div>
+
         <div class="intro">
-            <p>Consultant Data & Analytics Engineer avec 6 ans d’expérience, dont 4 ans chez Orange (Télécoms) et 1 an chez Malakoff Humanis (Assurance). J'accompagne les directions métier (Banque, Assurance, Télécoms) dans la conception de dashboards stratégiques et l'industrialisation de pipelines data.</p>
-            <p>🎯 <strong>Disponible pour :</strong> Missions longues en freelance (TJM 500-550€) ou CDI stratégique en Data / BI / Analytics.</p>
+            <p>
+                <strong>Je transforme la data en décisions business.</strong> Avec plus de 6 ans d'expérience dans des secteurs variés 
+                (<strong>Télécom</strong> – Orange, <strong>Assurance</strong> – Malakoff Humanis, <strong>Foodtech</strong> – Aliive), 
+                j'accompagne les directions métier dans l'automatisation de leurs reportings stratégiques et la conception de dashboards Power BI.
+            </p>
+            <p style="margin-top: 10px;">
+                🎯 <strong>Ma cible :</strong> Un CDI en tant que <strong>Senior Data Analyst, BI Engineer ou Analytics Engineer</strong>, 
+                où je pourrai mettre ma double compétence technique et business au service de la performance.
+            </p>
         </div>
+
         <div class="contact-links">
             <a href="mailto:loegnali@gmail.com">📧 loegnali@gmail.com</a>
-            <a href="https://www.linkedin.com/in/joel-gnali-loe" target="_blank">🔗 LinkedIn</a>
+            <a href="https://www.linkedin.com/in/joel-gnall/" target="_blank">🔗 LinkedIn</a>
+            <a href="https://github.com/loe23" target="_blank">🐙 GitHub</a>
         </div>
     </div>
 
     <!-- ==========================================
-    BLOC API (LE PRODUIT B2B)
-    ========================================== -->
-    <div class="api-block">
-        <div class="api-text">
-            <span class="tag">📡 B2B – Data-as-a-Service</span>
-            <h2>API de veille concurrentielle</h2>
-            <p>
-                Suivi quotidien automatisé des frais de transfert (Sendwave, Orange Money, Remitly, Taptap, WorldRemit) 
-                vers l'Afrique de l'Ouest. <strong>Industrialisée, documentée (Swagger) et déployée en production.</strong>
-            </p>
-            <div style="margin-top: 10px;">
-                <a href="offres.html" class="api-btn">🚀 Voir les offres &amp; packs</a>
-                <a href="https://transfer-api-t1py.onrender.com/docs" target="_blank" class="api-btn-outline">📖 Documentation API</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==========================================
-    PROJETS DATA ANALYST
+    EXPÉRIENCES CLÉS (TIMELINE CV)
     ========================================== -->
     <div class="card">
-        <h2 style="margin-bottom: 15px;">📊 Projets Data Analyst</h2>
-        <div class="grid">
-            <!-- PROJET 1 : ECOMMERCE FACTORY PRO -->
-            <div class="project-card">
-                <h3>🚀 Ecommerce Factory Pro</h3>
-                <div class="meta">Pipeline Airflow / Docker / PostgreSQL</div>
-                <p style="font-size:0.9rem;">Détection automatique de ruptures de stock. Génération de rapports HTML industrialisés.</p>
-                <a href="https://payhip.com/b/6Hb1V" target="_blank">🔗 Voir le produit</a>
+        <h2 style="margin-bottom: 15px; font-size: 1.4rem;">📋 Expériences clés</h2>
+        <div class="exp-grid">
+
+            <!-- ORANGE -->
+            <div class="exp-item">
+                <div class="exp-left">
+                    <span class="title">Data Analyst</span><br>
+                    <span class="company">Orange Côte d'Ivoire</span>
+                    <span class="date">2018 – 2022 · 4 ans</span>
+                </div>
+                <div class="exp-right">
+                    <p>Pilotage de la performance commerciale sur des bases de <span class="highlight">plusieurs millions de lignes</span>. Segmentation stratégique des clients (5 segments) et suivi de 15 KPIs. Industrialisation des reportings sous Excel VBA (<span class="highlight">réduction de 50%</span> du temps de production).</p>
+                </div>
             </div>
 
-            <!-- PROJET 2 : OPTIMISATION MARKETING ORANGE -->
+            <!-- MALAKOFF -->
+            <div class="exp-item">
+                <div class="exp-left">
+                    <span class="title">Data Analyst BI (CDD)</span><br>
+                    <span class="company">Malakoff Humanis</span>
+                    <span class="date">2023 – 2024 · 1 an</span>
+                </div>
+                <div class="exp-right">
+                    <p>Référent métier <span class="highlight">Power BI</span> pour le pilotage stratégique de la conformité et des reportings RGPD. Conception de dashboards et de modèles SQL Server. Animation d'ateliers Agile et formation des utilisateurs.</p>
+                </div>
+            </div>
+
+            <!-- ALIIVE -->
+            <div class="exp-item">
+                <div class="exp-left">
+                    <span class="title">Data Analyst & Engineer</span><br>
+                    <span class="company">Aliive (Foodtech)</span>
+                    <span class="date">2024 – 2025 · 9 mois</span>
+                </div>
+                <div class="exp-right">
+                    <p>Conception de dashboards Power BI pour le pilotage de la performance (5 KPIs). <span class="highlight">Réduction du reporting hebdomadaire de 2 heures à 20 minutes</span>, permettant aux managers de gagner 1h30 d'analyse par semaine.</p>
+                </div>
+            </div>
+
+            <!-- PROJETS AUTONOMES -->
+            <div class="exp-item">
+                <div class="exp-left">
+                    <span class="title">Projets Data & Analytics</span><br>
+                    <span class="company">Développement de solutions B2B</span>
+                    <span class="date">2025 – aujourd'hui · 1 an</span>
+                </div>
+                <div class="exp-right">
+                    <p>Conception et déploiement d'une <span class="highlight">API de veille concurrentielle</span> (FastAPI, BigQuery, Render) et d'un pipeline d'alerte de rupture de stock (Airflow, Docker). Maîtrise du cycle de vie complet d'un projet data, de la collecte à la mise en production.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+    PROJET PHARE : API (REFRAME)
+    ========================================== -->
+    <div class="card" style="padding-bottom: 10px;">
+        <h2 style="margin-bottom: 5px; font-size: 1.4rem;">🚀 Projet phare</h2>
+        <div class="api-block">
+            <div class="api-text">
+                <span class="tag">📡 API – Veille concurrentielle</span>
+                <h2>Suivi automatisé des transferts d'argent</h2>
+                <p>
+                    Développement d'une API REST sécurisée pour le suivi quotidien des frais de transfert vers l'Afrique de l'Ouest. 
+                    <strong>Pipeline ETL automatisé (Python, BigQuery), documentation Swagger, authentification par clé API, déployée en production sur Render.</strong>
+                    <br><span style="opacity:0.7; font-size:0.85rem;">(Projet personnel illustrant ma capacité à livrer un produit data de bout en bout.)</span>
+                </p>
+                <div style="margin-top: 10px;">
+                    <a href="https://transfer-api-t1py.onrender.com/docs" target="_blank" class="api-btn">📖 Documentation API</a>
+                    <a href="https://github.com/loe23/transfer-api" target="_blank" class="api-btn-outline">🐙 Voir le code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+    PORTFOLIO PROJETS (ÉTUDES DE CAS)
+    ========================================== -->
+    <div class="card">
+        <h2 style="margin-bottom: 5px; font-size: 1.4rem;">📊 Portfolio – Études de cas</h2>
+        <p style="color: #4a5c6c; margin-bottom: 15px; font-size: 0.95rem;">Projets réalisés en autonomie pour illustrer mon expertise technique et métier.</p>
+        
+        <div class="grid">
+            <!-- PROJET 1 : ECOMMERCE FACTORY -->
+            <div class="project-card">
+                <h3>📦 Ecommerce Factory</h3>
+                <div class="meta">Pipeline d'alerte rupture de stock</div>
+                <p><strong>Stack :</strong> Airflow, Docker, PostgreSQL. Génération automatisée de rapports HTML quotidiens.</p>
+                <a href="https://loe23.github.io" target="_blank">🔗 Voir l'étude de cas</a>
+            </div>
+
+            <!-- PROJET 2 : OPTIMISATION ORANGE -->
             <div class="project-card">
                 <h3>📈 Optimisation marketing Orange</h3>
-                <div class="meta">Python / Power BI – ROI 245%</div>
-                <p style="font-size:0.9rem;">Segmentation client et recommandations d'allocation budgétaire (Email +20%, SMS +15%).</p>
-                <a href="projet-campagnes-orange/">🔗 Voir le projet</a>
+                <div class="meta">ROI 245% sur les campagnes Email</div>
+                <p><strong>Stack :</strong> Python (Jupyter), Power BI. Segmentation client et recommandations budgétaires (Email +20%, SMS +15%).</p>
+                <a href="https://loe23.github.io/projet-campagnes-orange/" target="_blank">🔗 Voir le projet</a>
             </div>
 
-            <!-- PROJET 3 : ANALYSE RGPD CARREFOUR -->
+            <!-- PROJET 3 : RGPD CARREFOUR -->
             <div class="project-card">
                 <h3>🔒 Analyse RGPD Carrefour</h3>
-                <div class="meta">BigQuery / Looker Studio</div>
-                <p style="font-size:0.9rem;">Identification du canal Direct (46% du CA) et analyse du parcours client conforme RGPD.</p>
-                <a href="projet-marketing-rgpd-carrefour/">🔗 Voir le projet</a>
+                <div class="meta">Identification du canal Direct (46% CA)</div>
+                <p><strong>Stack :</strong> BigQuery, SQL, Looker Studio. Analyse du parcours client conforme RGPD.</p>
+                <a href="https://loe23.github.io/projet-marketing-rgpd-carrefour/" target="_blank">🔗 Voir le projet</a>
             </div>
 
-            <!-- PROJET 4 : ANALYSE GEOSPATIALE TRANSPORTS -->
+            <!-- PROJET 4 : TRANSPORTS -->
             <div class="project-card">
-                <h3>🗺️ Analyse géospatiale des transports</h3>
-                <div class="meta">Python / Pandas / Folium</div>
-                <p style="font-size:0.9rem;">Exploration de 707 arrêts de transport public en Normandie. Cartographie interactive.</p>
-                <a href="projet-transports-normandie/">🔗 Voir le projet</a>
+                <h3>🗺️ Analyse géospatiale Normandie</h3>
+                <div class="meta">707 arrêts de transport public</div>
+                <p><strong>Stack :</strong> Python, Pandas, Folium. Cartographie interactive et statistiques de distribution.</p>
+                <a href="https://loe23.github.io/projet-transports-normandie/" target="_blank">🔗 Voir le projet</a>
             </div>
         </div>
     </div>
@@ -270,7 +461,7 @@
     COMPÉTENCES
     ========================================== -->
     <div class="card">
-        <h2 style="margin-bottom: 10px;">🛠️ Compétences clés</h2>
+        <h2 style="margin-bottom: 10px; font-size: 1.4rem;">🛠️ Compétences techniques</h2>
         <div class="skills-grid">
             <span>Power BI (Expert)</span>
             <span>SQL (Expert)</span>
@@ -280,9 +471,25 @@
             <span>Docker</span>
             <span>Looker Studio</span>
             <span>Tableau</span>
+            <span>FastAPI</span>
+            <span>PostgreSQL</span>
         </div>
-        <div style="margin-top: 20px; border-top: 1px solid #e9edf2; padding-top: 20px; text-align: center; color: #4a5c6c;">
-            📄 <a href="mailto:loegnali@gmail.com" style="color:#0a66b9;">📩 Me contacter pour un devis / CV</a>
+    </div>
+
+    <!-- ==========================================
+    FOOTER / CTA
+    ========================================== -->
+    <div class="card" style="text-align: center; background: #f0f7ff;">
+        <h3 style="margin-bottom: 8px;">📩 Je suis en recherche active d'un CDI</h3>
+        <p style="color: #1e2a3a; font-size: 1.05rem;">
+            Disponible sur Paris ou en mobilité nationale. N'hésitez pas à me contacter pour échanger sur vos besoins Data.
+        </p>
+        <div style="margin-top: 15px;">
+            <a href="mailto:loegnali@gmail.com" style="background: #0a66b9; color: white; padding: 12px 40px; border-radius: 40px; text-decoration: none; font-weight: 600; display: inline-block;">📧 Me contacter</a>
+            <a href="https://www.linkedin.com/in/joel-gnall/" target="_blank" style="margin-left: 15px; color: #0a66b9; font-weight: 600; text-decoration: none;">🔗 Voir mon LinkedIn</a>
+        </div>
+        <div style="margin-top: 15px; font-size: 0.85rem; color: #4a5c6c;">
+            📄 Télécharger mon CV sur demande.
         </div>
     </div>
 
