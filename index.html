@@ -212,7 +212,7 @@
             border-radius: 16px;
             border: 1px solid #e9edf2;
             transition: box-shadow 0.2s;
-            scroll-margin-top: 20px;
+            scroll-margin-top: 80px; /* Ajusté pour bien voir la carte après scroll */
         }
         .project-card:hover {
             box-shadow: 0 8px 20px rgba(0,0,0,0.03);
@@ -341,7 +341,7 @@
     </div>
 
     <!-- ==========================================
-    EXPÉRIENCES (SANS DOUBLONS)
+    EXPÉRIENCES
     ========================================== -->
     <div class="card">
         <h2 style="margin-bottom: 15px; font-size: 1.4rem;">📋 Expériences clés</h2>
@@ -421,7 +421,7 @@
     </div>
 
     <!-- ==========================================
-    PORTFOLIO – ÉTUDES DE CAS (AVEC ANCRES)
+    PORTFOLIO – ÉTUDES DE CAS (LIENS ABSOLUS AVEC ANCRES)
     ========================================== -->
     <div class="card">
         <h2 style="margin-bottom: 5px; font-size: 1.4rem;">📊 Portfolio – Études de cas</h2>
@@ -433,28 +433,28 @@
                 <h3>📦 Ecommerce Factory</h3>
                 <div class="meta">Pipeline d'alerte rupture de stock</div>
                 <p><strong>Stack :</strong> Airflow, Docker, PostgreSQL. Génération automatisée de rapports HTML quotidiens.</p>
-                <a href="#projet-ecommerce">🔗 Voir l'étude de cas</a>
+                <a href="https://loe23.github.io/#projet-ecommerce">🔗 Voir l'étude de cas</a>
             </div>
 
             <div class="project-card" id="projet-orange">
                 <h3>📈 Optimisation marketing Orange</h3>
                 <div class="meta">ROI 245% sur les campagnes Email</div>
                 <p><strong>Stack :</strong> Python (Jupyter), Power BI. Segmentation client et recommandations budgétaires (Email +20%, SMS +15%).</p>
-                <a href="#projet-orange">🔗 Voir le projet</a>
+                <a href="https://loe23.github.io/#projet-orange">🔗 Voir le projet</a>
             </div>
 
             <div class="project-card" id="projet-carrefour">
                 <h3>🔒 Analyse RGPD Carrefour</h3>
                 <div class="meta">Identification du canal Direct (46% CA)</div>
                 <p><strong>Stack :</strong> BigQuery, SQL, Looker Studio. Analyse du parcours client conforme RGPD.</p>
-                <a href="#projet-carrefour">🔗 Voir le projet</a>
+                <a href="https://loe23.github.io/#projet-carrefour">🔗 Voir le projet</a>
             </div>
 
             <div class="project-card" id="projet-transports">
                 <h3>🗺️ Analyse géospatiale Normandie</h3>
                 <div class="meta">707 arrêts de transport public</div>
                 <p><strong>Stack :</strong> Python, Pandas, Folium. Cartographie interactive et statistiques de distribution.</p>
-                <a href="#projet-transports">🔗 Voir le projet</a>
+                <a href="https://loe23.github.io/#projet-transports">🔗 Voir le projet</a>
             </div>
 
         </div>
@@ -494,18 +494,47 @@
             📄 Télécharger mon CV sur demande (disponible en PDF).
         </div>
     </div>
-<script>
-// Force le défilement vers l'ancre après le chargement de la page
-window.addEventListener('load', function() {
-    if (window.location.hash) {
-        setTimeout(function() {
-            var target = document.querySelector(window.location.hash);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    <!-- ==========================================
+    SCRIPT DE SCROLL FIABLE
+    ========================================== -->
+    <script>
+        (function() {
+            // Récupérer l'ancre dans l'URL (ex: #projet-orange)
+            var hash = window.location.hash;
+            if (!hash) return;
+
+            function scrollToTarget() {
+                var target = document.querySelector(hash);
+                if (target) {
+                    // Récupérer la position de l'élément
+                    var rect = target.getBoundingClientRect();
+                    // Décalage pour éviter que la carte ne touche le bord supérieur
+                    var offset = 80;
+                    window.scrollTo({
+                        top: rect.top + window.pageYOffset - offset,
+                        behavior: 'smooth'
+                    });
+                    return true;
+                }
+                return false;
             }
-        }, 600);
-    }
-});
-</script>
+
+            // Essayer immédiatement si le DOM est déjà chargé
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                if (!scrollToTarget()) {
+                    // Si l'élément n'est pas trouvé, réessayer après un court délai
+                    setTimeout(scrollToTarget, 300);
+                }
+            } else {
+                // Sinon, attendre que la page soit complètement chargée
+                window.addEventListener('load', function() {
+                    // Petit délai pour laisser le temps aux polices/images de se stabiliser
+                    setTimeout(scrollToTarget, 300);
+                });
+            }
+        })();
+    </script>
+
 </body>
 </html>
