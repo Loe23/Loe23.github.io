@@ -1,61 +1,70 @@
-# 👋 Joël Gnali LOE — Senior Data Analyst | BI Engineer
+👋 Joël Gnali LOE — Data Analyst Retail & Business Analyst | SQL - Power BI - Python
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0a66b9?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joel-gnall/)
-[![Portfolio](https://img.shields.io/badge/Portfolio-1e2a3a?style=flat&logo=github&logoColor=white)](https://loe23.github.io)
-[![Email](https://img.shields.io/badge/Email-loegnali@gmail.com-blue?style=flat&logo=gmail)](mailto:loegnali@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/joel-gnali-loe) | [Portfolio](https://loe23.github.io) | [Email](mailto:loegnali@gmail.com)
 
 ---
 
 ## 🧑‍💻 À propos de moi
 
-**Data Analyst & BI Engineer** avec **plus de 6 ans d'expérience** dans des secteurs variés :
+Data Analyst & BI Engineer avec plus de 6 ans d'expérience dans des secteurs variés, complétée par une expérience opérationnelle terrain en grande distribution :
 
 - 📡 **Télécom** – Orange (4 ans)
 - 🛡️ **Assurance** – Malakoff Humanis (1 an)
 - 🍏 **Foodtech** – Aliive (9 mois)
+- 🛒 **Grande Distribution / Retail** – Auchan Retail (3+ ans, en parallèle)
 
-🎯 **Actuellement en recherche active d'un CDI** en tant que **Senior Data Analyst**, **BI Engineer** ou **Analytics Engineer**.
+👉 **Ma spécificité** : Je ne me contente pas de livrer des données. Grâce à mon expérience chez Auchan, je connais les vrais enjeux opérationnels des stocks, de la logistique et du terrain. Je conçois des solutions data qui sont *directement utiles* aux équipes métier.
 
-📍 Paris & Mobilité nationale
+## 🎯 Cible & Disponibilité
 
----
+🎯 **Profil visé** : Data Analyst Retail, Business Analyst, Analyste Performance, Analyste Supply Chain et AMOA Data (idéalement dans le retail, l’e‑commerce, la logistique ou les services opérationnels).  
+✅ **CDI** – Senior Data Analyst, BI Engineer ou Analytics Engineer  
+📍 Paris & Mobilité nationale  
+📅 Disponible immédiatement
+
+## 📊 Résultats clés
+
+| Indicateur | Résultat |
+|------------|----------|
+| Temps de reporting Orange | **-50 %** (Excel VBA, gouvernance) |
+| Reporting Malakoff Humanis | **3 h → 20 min** (Python + Power Query) |
+| Reporting Aliive | **2 h → 20 min** (Power BI + automatisation) |
+| ROI marketing Orange | **+245 %** (segmentation client) |
+| **Compréhension terrain** | **Gestion des stocks, réassort et commandes** – Auchan (vision concrète des besoins opérationnels) |
 
 ## 🛠️ Compétences techniques
 
 | Domaine | Technologies |
 |---------|--------------|
-| **BI & Visualisation** | Power BI (Expert), Looker Studio, Tableau |
-| **Langages** | SQL (Expert), Python (Pandas, NumPy, FastAPI) |
-| **Cloud & Data Engineering** | BigQuery, Airflow, Docker, PostgreSQL, Render |
-| **Méthodologies** | ETL/ELT, Modélisation dimensionnelle, RGPD, Agile |
-
----
+| BI & Visualisation | Power BI (Expert), Looker Studio, Tableau |
+| Langages | SQL (Expert), Python (Pandas, NumPy, FastAPI) |
+| Cloud & Data Engineering | BigQuery, Airflow, Docker, PostgreSQL, Render |
+| Méthodologies | ETL/ELT, Modélisation dimensionnelle, RGPD, Agile, AMOA / Analyse fonctionnelle |
 
 ## 📦 Projets phares
 
-| Projet | Description | Stack | Lien |
-|--------|-------------|-------|------|
-| **API Veille concurrentielle** | API REST sécurisée pour le suivi des frais de transfert. Pipeline ETL automatisé, doc Swagger, déployée sur Render. | FastAPI, BigQuery, Python, Render | [Voir →](https://loe23.github.io/#projet-orange) |
-| **Ecommerce Factory** | Pipeline d'alerte de rupture de stock. Orchestration Airflow, conteneurisation Docker, rapports HTML automatisés. | Airflow, Docker, PostgreSQL, Python | [Voir →](https://loe23.github.io/#projet-ecommerce) |
-| **Optimisation marketing Orange** | Simulation de 2000 campagnes. ROI Email identifié à 245%. Recommandations budgétaires. | Python, Power BI | [Voir →](https://loe23.github.io/#projet-orange) |
-| **Analyse RGPD Carrefour** | Analyse des canaux marketing RGPD-compliant. Canal Direct = 46% du CA. | BigQuery, SQL, Looker Studio | [Voir →](https://loe23.github.io/#projet-carrefour) |
-| **Analyse géospatiale Normandie** | Cartographie interactive de 707 arrêts de transport public. | Python, Pandas, Folium | [Voir →](https://loe23.github.io/#projet-transports) |
+| Projet | Description | Impact | Stack | Lien |
+|--------|-------------|--------|-------|------|
+| API Veille concurrentielle | API REST sécurisée pour le suivi des frais de transfert | Collecte automatisée, doc Swagger | FastAPI, BigQuery, Python, Render | [Voir →](https://github.com/Loe23/transfer-api) |
+| Ecommerce Factory | Pipeline d'alerte de rupture de stock | Détection automatique des ruptures | Airflow, Docker, PostgreSQL, Python | Voir → |
+| Optimisation marketing Orange | Simulation de 2000 campagnes | ROI Email = 245 % | Python, Power BI | Voir → |
+| Analyse RGPD Carrefour | Analyse des canaux marketing RGPD-compliant | Canal Direct = 46 % du CA | BigQuery, SQL, Looker Studio | Voir → |
+| Analyse géospatiale Normandie | Cartographie interactive de 707 arrêts | Visualisation territoriale interactive | Python, Pandas, Folium | [Voir →](https://github.com/Loe23/Test) |
 
----
+## 💼 Ce que je peux apporter
 
-## 📂 Ce que vous trouverez ici
-
-Ce dépôt contient le code source de mon **portfolio personnel** (`index.html`), ainsi que des scripts et projets annexes que j'ai développés en autonomie.
-
-> 📌 *L'ensemble de mes projets est présenté sous forme d'études de cas sur mon [site portfolio](https://loe23.github.io).*
-
----
+- Concevoir des dashboards Power BI qui pilotent la performance commerciale et opérationnelle
+- Automatiser vos reportings (gain de temps immédiat, données fiables)
+- Mettre en place des pipelines ETL robustes avec Airflow, Docker, BigQuery
+- Former vos équipes à la data et aux outils de pilotage
+- Traduire les besoins métier en indicateurs actionnables (Rôle AMOA / Business Analyst)
+- **Allier expertise data et connaissance terrain (retail/logistique/stocks)** pour des solutions réellement opérationnelles et adoptées par les équipes
 
 ## 📫 Me contacter
 
-- 📧 **Email** : loegnali@gmail.com
-- 🔗 **LinkedIn** : [linkedin.com/in/joel-gnall](https://www.linkedin.com/in/joel-gnall/)
-- 🌐 **Portfolio** : [loe23.github.io](https://loe23.github.io)
+📧 **Email** : loegnali@gmail.com  
+🔗 **LinkedIn** : linkedin.com/in/joel-gnali-loe  
+🌐 **Portfolio** : loe23.github.io
 
 ---
 
