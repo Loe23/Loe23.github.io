@@ -11,6 +11,7 @@
         h1 { font-size: 2.5rem; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
         .badge { background: #eef2ff; color: #1e40af; font-size: 0.85rem; padding: 4px 14px; border-radius: 30px; font-weight: 600; }
         .badge-green { background: #dcfce7; color: #166534; }
+        .badge-star { background: #fef3c7; color: #b45309; }
         .subtitle { font-size: 1.15rem; color: #4a5c6c; border-left: 4px solid #f59e0b; padding-left: 16px; margin-bottom: 20px; line-height: 1.5; }
         .intro { line-height: 1.7; font-size: 1.05rem; margin-bottom: 20px; }
         .contact-links a { color: #0a66b9; text-decoration: none; font-weight: 500; margin-right: 20px; }
@@ -28,7 +29,40 @@
         .btn-cv { background: #0a66b9; color: white; padding: 12px 40px; border-radius: 40px; text-decoration: none; font-weight: 600; display: inline-block; transition: background 0.2s; }
         .btn-cv:hover { background: #004182; }
 
-        @media (max-width: 700px) { h1 { font-size: 1.8rem; } }
+        .featured {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+            color: #f8fafc;
+            border: none;
+        }
+        .featured h2 { color: #fff; margin-bottom: 12px; }
+        .featured p { line-height: 1.7; opacity: 0.95; margin-bottom: 14px; }
+        .featured ul { margin: 12px 0 18px 18px; line-height: 1.7; }
+        .featured a.btn-demo {
+            display: inline-block;
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 10px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-right: 12px;
+            margin-top: 8px;
+        }
+        .featured a.btn-code {
+            display: inline-block;
+            background: transparent;
+            color: #e2e8f0;
+            padding: 10px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid #64748b;
+            margin-top: 8px;
+        }
+        .featured .meta { font-size: 0.9rem; color: #94a3b8; margin-top: 16px; }
+        .featured strong { color: #fff; }
+
+        @media (max-width: 700px) { h1 { font-size: 1.8rem; } .card { padding: 24px; } }
     </style>
 </head>
 <body>
@@ -41,14 +75,32 @@
         </h1>
         <div class="subtitle">Data Analyst Retail & Business Analyst | SQL - Power BI - Python | Performance commerciale, stocks & opérations</div>
         <div class="intro">
-            <p><strong>Je transforme la data en décisions business.</strong> Avec plus de 6 ans d'expérience data (Orange, Malakoff Humanis, Aliive) et une expérience terrain en grande distribution (Auchan), je conçois des dashboards Power BI et des reportings automatisés qui pilotent la performance commerciale et opérationnelle.</p>
+            <p><strong>Je transforme la data en décisions business.</strong> Avec plus de 6 ans d'expérience data (Orange, Malakoff Humanis, Aliive) et une expérience terrain en grande distribution (Auchan), je conçois des dashboards Power BI, des reportings automatisés et des solutions data que les équipes utilisent vraiment.</p>
+            <p style="margin-top:10px;"><strong>Projet phare :</strong> Retail Stock Intelligence — API Cloud anti-rupture + dashboard Power BI (perte de CA, alertes réassort).</p>
             <p style="margin-top:10px;">🎯 <strong>Ma cible :</strong> Data Analyst Retail, Business Analyst, Analyste Performance, Analyste Supply Chain ou AMOA Data – Paris & mobilité nationale.</p>
         </div>
         <div class="contact-links">
             <a href="mailto:loegnali@gmail.com">📧 loegnali@gmail.com</a>
             <a href="https://www.linkedin.com/in/joel-gnali-loe" target="_blank">🔗 LinkedIn</a>
             <a href="https://github.com/Loe23" target="_blank">🐙 GitHub</a>
+            <a href="https://github.com/Loe23/retail-stock-api" target="_blank">⭐ Projet phare</a>
         </div>
+    </div>
+
+    <!-- PROJET PHARE -->
+    <div class="card featured">
+        <p style="margin-bottom:8px;"><span class="badge badge-star">⭐ PROJET PHARE</span></p>
+        <h2>🛒 Retail Stock Intelligence</h2>
+        <p>API Cloud B2B de détection des <strong>ruptures de stock</strong> + dashboard Power BI : couverture dynamique, <strong>perte de CA journalière</strong> par rayon, actions de réassort pour le terrain.</p>
+        <ul>
+            <li>Backend : Python, FastAPI, authentification par clé API</li>
+            <li>Dashboard : Power BI connecté en direct à l’API Cloud</li>
+            <li>Déploiement : GitHub + Render (demo live 24h/24)</li>
+            <li>Angle métier : conçu avec l’expérience rayon <strong>Auchan</strong></li>
+        </ul>
+        <a class="btn-demo" href="https://retail-stock-api.onrender.com/docs" target="_blank">⚡ Démo API (Swagger)</a>
+        <a class="btn-code" href="https://github.com/Loe23/retail-stock-api" target="_blank">📁 Code GitHub</a>
+        <p class="meta">Clé de démo : <strong style="color:#38bdf8;">demo_retail_2026</strong> · Endpoint utile : /v1/stock/overview · /v1/stock/alerts</p>
     </div>
 
     <div class="card">
@@ -57,6 +109,10 @@
             <table>
                 <thead><tr><th>Indicateur</th><th>Résultat</th></tr></thead>
                 <tbody>
+                    <tr>
+                        <td><strong>Retail Stock Intelligence</strong></td>
+                        <td><strong>API Cloud + Power BI</strong> anti-rupture (perte CA, alertes réassort)</td>
+                    </tr>
                     <tr><td>Temps de reporting Orange</td><td><strong>-50 %</strong> (Excel VBA, gouvernance)</td></tr>
                     <tr><td>Reporting Malakoff Humanis</td><td><strong>3 h → 20 min</strong> (Python + Power Query)</td></tr>
                     <tr><td>Reporting Aliive</td><td><strong>2 h → 20 min</strong> (Power BI + automatisation)</td></tr>
@@ -68,12 +124,13 @@
     </div>
 
     <div class="card">
-        <h2 style="margin-bottom: 15px;">📦 Projets phares</h2>
+        <h2 style="margin-bottom: 15px;">📦 Autres projets</h2>
         <ul class="styled-list">
-            <li><strong>Ecommerce Factory :</strong> Mise en place d'un pipeline d'alerte de rupture de stock automatisé (Airflow, Docker, PostgreSQL).</li>
+            <li><strong>Ecommerce Factory :</strong> Pipeline d'alerte de rupture de stock automatisé (Airflow, Docker, PostgreSQL).</li>
             <li><strong>Optimisation marketing Orange :</strong> Simulation de 2000 campagnes pour maximiser le ROI (Python, Power BI).</li>
             <li><strong>Analyse RGPD Carrefour :</strong> Audit et visualisation des canaux marketing conformes au RGPD (BigQuery, SQL, Looker Studio).</li>
             <li><strong>Analyse géospatiale Normandie :</strong> Cartographie interactive de 707 arrêts pour l'analyse territoriale (Python, Folium).</li>
+            <li><strong>API veille transferts d'argent :</strong> Suivi frais/taux (corridor France → CI) — FastAPI, Render.</li>
         </ul>
     </div>
 
@@ -83,6 +140,7 @@
             <li>Conception de dashboards Power BI orientés performance métier.</li>
             <li>Automatisation de reportings complexes pour gagner en fiabilité et rapidité.</li>
             <li>Développement de pipelines ETL robustes (Airflow, BigQuery, Docker).</li>
+            <li>API data en production (FastAPI, auth, Cloud) branchées sur la BI.</li>
             <li>Traduction des besoins métier en indicateurs actionnables (AMOA Data).</li>
             <li><strong>Expertise hybride Data & Terrain :</strong> une vision concrète des enjeux opérationnels (Retail/Logistique).</li>
         </ul>
@@ -91,16 +149,26 @@
     <div class="card">
         <h2 style="margin-bottom: 10px;">🛠️ Compétences techniques</h2>
         <div class="skills-grid">
-            <span>Power BI (Expert)</span> <span>SQL (Expert)</span> <span>Python</span> <span>BigQuery</span> <span>Airflow</span> <span>Docker</span> <span>Looker Studio</span> <span>FastAPI</span> <span>PostgreSQL</span> <span>Retail & Supply Chain</span>
+            <span>Power BI (Expert)</span>
+            <span>SQL (Expert)</span>
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>BigQuery</span>
+            <span>Airflow</span>
+            <span>Docker</span>
+            <span>PostgreSQL</span>
+            <span>Looker Studio</span>
+            <span>Retail & Supply Chain</span>
         </div>
     </div>
 
     <div class="card" style="text-align:center; background:#f0f7ff;">
         <h3 style="margin-bottom:8px;">📩 Je suis à l'écoute d'opportunités</h3>
-        <p style="color:#1e2a3a; font-size:1.05rem;">Disponible sur Paris ou en mobilité nationale.</p>
+        <p style="color:#1e2a3a; font-size:1.05rem;">CDI ou freelance — Paris, Nantes, mobilité nationale / remote.</p>
         <div style="margin-top:15px;">
             <a href="mailto:loegnali@gmail.com" class="btn-cv">📧 Me contacter</a>
             <a href="https://www.linkedin.com/in/joel-gnali-loe" target="_blank" style="margin-left:15px; color:#0a66b9; font-weight:600; text-decoration:none;">🔗 LinkedIn</a>
+            <a href="https://retail-stock-api.onrender.com/docs" target="_blank" style="margin-left:15px; color:#0a66b9; font-weight:600; text-decoration:none;">⚡ Démo API</a>
         </div>
     </div>
 
