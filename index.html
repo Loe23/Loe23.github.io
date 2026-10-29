@@ -1,485 +1,465 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Joël Gnali LOE — Data Analyst Retail & Business Analyst | Power BI, SQL, Python | Portfolio Data & BI">
-    <meta name="keywords" content="Data Analyst, Power BI, SQL, Python, Retail, Supply Chain, Business Analyst, Portfolio">
-    <title>Joël Gnali LOE | Data Analyst Retail & Business Analyst</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Joël Gnali LOE — Data Analyst Retail & Business Analyst | Power BI, SQL, Python">
+<title>Joël Gnali LOE | Data Analyst Retail & Business Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ═══════════ CSS INTÉGRÉ — AUCUN FICHIER EXTERNE REQUIS ═══════════ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--primary:#2563eb;--primary-dark:#1d4ed8;--dark:#0f172a;--dark2:#1e293b;
+--gray:#f1f5f9;--text:#334155;--text-light:#64748b;--white:#fff;
+--accent:#f59e0b;--radius:12px;--shadow:0 4px 20px rgba(0,0,0,.08);
+--shadow-hover:0 8px 30px rgba(0,0,0,.15)
+}
+body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.7;background:var(--white)}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* NAVBAR */
+.navbar{position:fixed;top:0;width:100%;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.nav-brand{font-size:1.3rem;font-weight:800;color:var(--primary)}
+.nav-links{display:flex;list-style:none;gap:24px;align-items:center}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--text);transition:color .3s}
+.nav-links a:hover{color:var(--primary)}
+.nav-cta{background:var(--primary)!important;color:#fff!important;padding:10px 24px!important;border-radius:50px!important;font-weight:600!important}
+
+/* HERO */
+.hero{padding:140px 40px 80px;background:linear-gradient(135deg,var(--gray) 0%,var(--white) 100%);min-height:100vh;display:flex;align-items:center}
+.hero-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);padding:8px 20px;border-radius:50px;font-size:.85rem;font-weight:500;color:var(--primary);box-shadow:var(--shadow);margin-bottom:24px}
+.hero h1{font-size:3rem;font-weight:800;line-height:1.2;color:var(--dark);margin-bottom:20px}
+.highlight{color:var(--primary)}
+.hero-subtitle{font-size:1.1rem;color:var(--text);margin-bottom:32px}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:50px;font-size:1rem;font-weight:600;transition:all .3s;border:none;cursor:pointer}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
+.btn-secondary{background:var(--white);color:var(--dark);border:2px solid var(--dark)}
+.btn-secondary:hover{background:var(--dark);color:#fff;transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--primary);border:2px solid var(--primary)}
+.btn-outline:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
+.btn-large{padding:18px 40px;font-size:1.15rem}
+.hero-stats{display:flex;gap:40px}
+.stat{text-align:center}
+.stat-number{display:block;font-size:2.2rem;font-weight:800;color:var(--primary)}
+.stat-label{font-size:.85rem;color:var(--text-light);font-weight:500}
+.hero-visual{display:flex;justify-content:center;align-items:center}
+.dashboard-placeholder{background:linear-gradient(135deg,#1e293b,#0f172a);border-radius:var(--radius);box-shadow:var(--shadow-hover);padding:40px;color:#fff;width:100%;min-height:350px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.dash-row{display:flex;justify-content:space-between;padding:12px 16px;background:rgba(255,255,255,.06);border-radius:8px;font-size:.9rem}
+.dash-alert{background:rgba(239,68,68,.2);border-left:4px solid #ef4444}
+.dash-ok{background:rgba(16,185,129,.2);border-left:4px solid #10b981}
+.dash-title{font-weight:700;font-size:1.1rem;margin-bottom:8px;color:#f59e0b}
+
+/* SECTIONS */
+.section{padding:100px 0}
+.section-dark{background:var(--dark);color:var(--white)}
+.section-gray{background:var(--gray)}
+.section-title{font-size:2.2rem;font-weight:800;margin-bottom:16px;color:var(--dark)}
+.section-dark .section-title{color:var(--white)}
+.section-subtitle{font-size:1.15rem;color:var(--text-light);margin-bottom:48px;max-width:600px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:60px;align-items:center}
+.about-lead{font-size:1.3rem;font-weight:600;color:var(--dark);margin-bottom:20px}
+.about-text p{margin-bottom:16px;font-size:1.05rem}
+.about-experience-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.exp-tag{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--gray);border-radius:50px;font-size:.9rem;font-weight:600;color:var(--primary)}
+.photo-placeholder{width:100%;aspect-ratio:1;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:#fff;font-size:5rem;font-weight:800;box-shadow:var(--shadow-hover)}
+
+/* PROJET PHARE */
+.featured-project{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.project-tag{display:inline-block;padding:6px 16px;background:rgba(255,255,255,.1);border-radius:50px;font-size:.85rem;font-weight:500;margin-bottom:16px}
+.featured-project h3{font-size:2.2rem;font-weight:800;margin-bottom:16px;color:var(--white)}
+.project-description{font-size:1.15rem;color:rgba(255,255,255,.8);margin-bottom:32px}
+.project-features{display:flex;flex-direction:column;gap:20px;margin-bottom:32px}
+.feature{display:flex;gap:16px;align-items:flex-start}
+.feature i{font-size:1.3rem;color:var(--accent);margin-top:4px}
+.feature strong{display:block;color:var(--white);margin-bottom:4px}
+.feature span{color:rgba(255,255,255,.6);font-size:.95rem}
+.project-stack{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
+.stack-badge{padding:6px 16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:50px;font-size:.85rem;font-weight:500;color:var(--white)}
+.project-buttons{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.security-note{font-size:.9rem;color:rgba(255,255,255,.5)}
+.security-note a{color:var(--accent);text-decoration:underline}
+
+/* RESULTATS */
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.result-card{background:var(--white);padding:32px;border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;transition:transform .3s;border:1px solid rgba(0,0,0,.05)}
+.result-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.result-icon{font-size:2.5rem;margin-bottom:12px}
+.result-value{font-size:2.5rem;font-weight:800;color:var(--primary);margin-bottom:8px}
+.result-label{font-size:1.05rem;font-weight:600;color:var(--dark);margin-bottom:8px}
+.result-detail{font-size:.9rem;color:var(--text-light)}
+
+/* PROJETS */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.project-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s;display:flex;flex-direction:column}
+.project-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.card-top{height:8px}
+.project-card h4{padding:20px 24px 8px;font-size:1.15rem;font-weight:700;color:var(--dark)}
+.project-card p{padding:0 24px 16px;font-size:.95rem;color:var(--text-light);flex:1}
+.card-stack{padding:0 24px 16px;font-size:.85rem;font-weight:600;color:var(--primary)}
+
+/* COMPETENCES */
+.skills-columns{display:grid;grid-template-columns:repeat(2,1fr);gap:40px}
+.skill-category h3{font-size:1.25rem;font-weight:700;color:var(--dark);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.skill-category h3 i{color:var(--primary)}
+.skill-bar{margin-bottom:16px}
+.skill-name{display:flex;justify-content:space-between;font-weight:600;margin-bottom:6px;font-size:.95rem}
+.skill-name span{color:var(--text-light);font-weight:400;font-size:.85rem}
+.bar{height:8px;background:var(--gray);border-radius:50px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--primary),#10b981);border-radius:50px;transition:width 1.2s ease;width:0}
+
+/* TIMELINE */
+.timeline{max-width:800px;margin:0 auto;position:relative;padding-left:40px}
+.timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:3px;background:rgba(255,255,255,.15)}
+.timeline-item{position:relative;margin-bottom:40px}
+.timeline-item::before{content:'';position:absolute;left:-34px;top:8px;width:14px;height:14px;background:var(--accent);border-radius:50%;border:3px solid var(--dark)}
+.timeline-date{font-size:.85rem;font-weight:600;color:var(--accent);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+.timeline-content h4{font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:8px}
+.timeline-content p{color:rgba(255,255,255,.6);font-size:.95rem}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:60px}
+.contact-card{display:flex;flex-direction:column;align-items:center;padding:32px 24px;background:var(--gray);border-radius:var(--radius);transition:all .3s;text-align:center}
+.contact-card:hover{background:var(--primary);color:#fff;transform:translateY(-4px)}
+.contact-card i{font-size:2rem;color:var(--primary);margin-bottom:12px;transition:color .3s}
+.contact-card:hover i{color:#fff}
+.contact-card span{font-size:.85rem;color:var(--text-light);margin-bottom:4px}
+.contact-card:hover span{color:rgba(255,255,255,.8)}
+.contact-card strong{font-size:1.05rem;color:var(--dark)}
+.contact-card:hover strong{color:#fff}
+.cta-final{text-align:center;padding:48px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:var(--radius)}
+.cta-final p{font-size:1.4rem;font-weight:600;color:#fff;margin-bottom:24px}
+.cta-final .btn{background:#fff;color:var(--primary)}
+
+/* FOOTER */
+.footer{background:var(--dark);color:rgba(255,255,255,.5);text-align:center;padding:32px;font-size:.9rem}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+.hero h1{font-size:2.3rem}
+.results-grid,.projects-grid{grid-template-columns:repeat(2,1fr)}
+.contact-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+.nav-links{display:none}
+.hero{padding:120px 24px 60px}
+.hero-content,.about-grid,.featured-project,.skills-columns{grid-template-columns:1fr;gap:40px}
+.hero h1{font-size:2rem}
+.hero-stats{gap:24px}
+.results-grid,.projects-grid,.contact-grid{grid-template-columns:1fr}
+.section-title{font-size:1.8rem}
+.navbar{padding:16px 24px}
+}
+</style>
 </head>
 <body>
 
-<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<!-- NAVBAR -->
 <nav class="navbar">
-    <div class="nav-brand">Joël LOE</div>
-    <ul class="nav-links">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#apropos">À propos</a></li>
-        <li><a href="#projet-phare">Projet phare</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="#resultats">Résultats</a></li>
-        <li><a href="#competences">Compétences</a></li>
-        <li><a href="#contact" class="nav-cta">Me contacter</a></li>
-    </ul>
-    <div class="nav-burger" id="burger">
-        <span></span><span></span><span></span>
-    </div>
+<div class="nav-brand">Joël LOE</div>
+<ul class="nav-links">
+<li><a href="#accueil">Accueil</a></li>
+<li><a href="#apropos">À propos</a></li>
+<li><a href="#projet-phare">Projet phare</a></li>
+<li><a href="#projets">Projets</a></li>
+<li><a href="#resultats">Résultats</a></li>
+<li><a href="#competences">Compétences</a></li>
+<li><a href="#contact" class="nav-cta">Me contacter</a></li>
+</ul>
 </nav>
 
-<!-- ═══════════════════ HERO ═══════════════════ -->
+<!-- HERO -->
 <section id="accueil" class="hero">
-    <div class="hero-content">
-        <div class="hero-text">
-            <p class="hero-badge">
-                <i class="fas fa-map-marker-alt"></i> Paris · CDI / Freelance · Remote
-            </p>
-            <h1>
-                Je transforme les <span class="highlight">données</span><br>
-                en <span class="highlight">décisions business</span>.
-            </h1>
-            <p class="hero-subtitle">
-                <strong>6+ ans</strong> en Data (Orange · Malakoff Humanis · Aliive)<br>
-                <strong>+ Terrain</strong> en grande distribution (Auchan) → Je conçois des dashboards 
-                et des solutions que les équipes <strong>utilisent vraiment</strong>.
-            </p>
-            <div class="hero-buttons">
-                <a href="#projet-phare" class="btn btn-primary">
-                    <i class="fas fa-rocket"></i> Voir mon projet phare
-                </a>
-                <a href="cv/Joel_Gnali_LOE_CV.pdf" class="btn btn-secondary" download>
-                    <i class="fas fa-file-pdf"></i> Télécharger mon CV
-                </a>
-                <a href="#contact" class="btn btn-outline">
-                    <i class="fas fa-envelope"></i> Me contacter
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">6+</span>
-                    <span class="stat-label">Ans d'expérience</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">-83%</span>
-                    <span class="stat-label">Temps de reporting</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Solutions en production</span>
-                </div>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <!-- Remplace par ton GIF ou capture du dashboard -->
-            <img src="images/dashboard-retail-stock.gif" 
-                 alt="Dashboard Power BI - Retail Stock Intelligence"
-                 class="hero-dashboard">
-        </div>
-    </div>
+<div class="hero-content">
+<div class="hero-text">
+<p class="hero-badge"><i class="fas fa-map-marker-alt"></i> Paris · CDI / Freelance · Remote</p>
+<h1>Je transforme les <span class="highlight">données</span><br>en <span class="highlight">décisions business</span>.</h1>
+<p class="hero-subtitle">
+<strong>6+ ans</strong> en Data (Orange · Malakoff Humanis · Aliive)<br>
+Je conçois des dashboards Power BI et des solutions cloud que les équipes <strong>utilisent vraiment</strong>.
+</p>
+<div class="hero-buttons">
+<a href="#projet-phare" class="btn btn-primary"><i class="fas fa-rocket"></i> Voir mon projet phare</a>
+<a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Me contacter</a>
+</div>
+<div class="hero-stats">
+<div class="stat"><span class="stat-number">6+</span><span class="stat-label">Ans d'expérience</span></div>
+<div class="stat"><span class="stat-number">-83%</span><span class="stat-label">Temps de reporting</span></div>
+<div class="stat"><span class="stat-number">100%</span><span class="stat-label">Solutions en production</span></div>
+</div>
+</div>
+<div class="hero-visual">
+<!-- SIMULATION DASHBOARD (remplace par ton GIF quand prêt) -->
+<div class="dashboard-placeholder">
+<div class="dash-title"><i class="fas fa-chart-line"></i> Retail Stock Intelligence — Tour de contrôle</div>
+<div class="dash-row dash-alert"><span>⚠️ Coca-Cola 33cl</span><span>Rupture dans 2j · -205€/j</span></div>
+<div class="dash-row dash-alert"><span>⚠️ Lait demi-écrémé</span><span>Commander 66 unités</span></div>
+<div class="dash-row dash-ok"><span>✅ Eau minérale 1L</span><span>Couverture : 12 jours</span></div>
+<div class="dash-row dash-ok"><span>✅ Riz Uncle Ben's</span><span>Couverture : 9 jours</span></div>
+<div class="dash-row"><span>📊 Perte CA évitée ce mois</span><span><strong>4 320 €</strong></span></div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ═══════════════════ À PROPOS ═══════════════════ -->
+<!-- À PROPOS -->
 <section id="apropos" class="section">
-    <div class="container">
-        <h2 class="section-title">Qui suis-je ?</h2>
-        <div class="about-grid">
-            <div class="about-text">
-                <p class="about-lead">
-                    Je m'appelle <strong>Joël Gnali LOE</strong>. J'ai un profil hybride : 
-                    je parle le <strong>langage data</strong> et le <strong>langage magasin</strong>.
-                </p>
-                <p>
-                    Formé en Data Analytics (INSEEC MSc) et avec une expérience terrain en 
-                    grande distribution (Auchan : stocks, réception, réassort, merchandising, 
-                    Click & Collect), j'ai compris un problème que beaucoup de data analysts 
-                    ignorent : <em>un dashboard que personne n'ouvre ne vaut rien</em>.
-                </p>
-                <p>
-                    Ma mission : concevoir des <strong>solutions data bout en bout</strong> 
-                    (SQL, Python, Power BI, API Cloud) qui répondent à des problèmes métier 
-                    concrets — et que les équipes adoptent au quotidien.
-                </p>
-                <div class="about-experience-row">
-                    <div class="exp-tag"><i class="fas fa-shopping-cart"></i> Retail & GMS</div>
-                    <div class="exp-tag"><i class="fas fa-chart-line"></i> Performance</div>
-                    <div class="exp-tag"><i class="fas fa-database"></i> Data Engineering</div>
-                    <div class="exp-tag"><i class="fas fa-cloud"></i> Cloud & API</div>
-                </div>
-            </div>
-            <div class="about-image">
-                <img src="images/joel-photo.jpg" alt="Joël Gnali LOE">
-            </div>
-        </div>
-    </div>
+<div class="container">
+<h2 class="section-title">Qui suis-je ?</h2>
+<div class="about-grid">
+<div class="about-text">
+<p class="about-lead">Je m'appelle <strong>Joël Gnali LOE</strong>. Je parle le <strong>langage data</strong> et je comprends le <strong>langage magasin</strong>.</p>
+<p>Formé en Data Analytics (INSEEC MSc), j'ai développé une solide compréhension des enjeux opérationnels du retail — gestion des stocks, réassort, merchandising, flux magasin. C'est cette double lecture qui fait la différence : <em>un dashboard que personne n'ouvre ne vaut rien.</em></p>
+<p>Ma mission : concevoir des <strong>solutions data de bout en bout</strong> (SQL, Python, Power BI, API Cloud) qui répondent à des problèmes métier concrets — et que les équipes adoptent au quotidien.</p>
+<div class="about-experience-row">
+<div class="exp-tag"><i class="fas fa-shopping-cart"></i> Retail & GMS</div>
+<div class="exp-tag"><i class="fas fa-chart-line"></i> Performance</div>
+<div class="exp-tag"><i class="fas fa-database"></i> Data Engineering</div>
+<div class="exp-tag"><i class="fas fa-cloud"></i> Cloud & API</div>
+</div>
+</div>
+<div class="about-image">
+<div class="photo-placeholder">JL</div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ═══════════════════ PROJET PHARE ═══════════════════ -->
+<!-- PROJET PHARE -->
 <section id="projet-phare" class="section section-dark">
-    <div class="container">
-        <h2 class="section-title">
-            <i class="fas fa-star"></i> Projet phare
-        </h2>
-        
-        <div class="featured-project">
-            <div class="project-info">
-                <span class="project-tag">🛒 Retail · Cloud · BI</span>
-                <h3>Retail Stock Intelligence</h3>
-                <p class="project-description">
-                    API Cloud B2B de <strong>détection proactive des ruptures de stock</strong> 
-                    + dashboard Power BI en temps réel.
-                </p>
-                
-                <div class="project-features">
-                    <div class="feature">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <div>
-                            <strong>Perte de CA quantifiée</strong>
-                            <span>Calculée en temps réel par rayon et par produit</span>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-bell"></i>
-                        <div>
-                            <strong>Alertes de réassort</strong>
-                            <span>Actions concrètes : "Commander 66 unités de X avant 11h"</span>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-chart-pie"></i>
-                        <div>
-                            <strong>Dashboard "Tour de Contrôle"</strong>
-                            <span>Le chef de magasin pilote sans Excel — en 2 min</span>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-code"></i>
-                        <div>
-                            <strong>Backend Python / FastAPI</strong>
-                            <span>API sécurisée (auth par clé), hébergée sur Render</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-stack">
-                    <span class="stack-badge">Python</span>
-                    <span class="stack-badge">FastAPI</span>
-                    <span class="stack-badge">Power BI</span>
-                    <span class="stack-badge">Render</span>
-                    <span class="stack-badge">GitHub Actions</span>
-                </div>
-
-                <div class="project-buttons">
-                    <a href="https://retail-stock-api.onrender.com/docs" class="btn btn-primary" target="_blank">
-                        <i class="fas fa-play-circle"></i> Démo live (Swagger)
-                    </a>
-                    <a href="https://github.com/Loe23/retail-stock-api" class="btn btn-outline" target="_blank">
-                        <i class="fab fa-github"></i> Code source
-                    </a>
-                </div>
-                <p class="security-note">
-                    <i class="fas fa-lock"></i> Clé de démo disponible sur demande — 
-                    <a href="mailto:loegnali@gmail.com">loegnali@gmail.com</a>
-                </p>
-            </div>
-            <div class="project-visual">
-                <!-- Capture ou GIF du dashboard -->
-                <img src="images/retail-stock-dashboard.png" 
-                     alt="Dashboard Retail Stock Intelligence"
-                     class="project-screenshot">
-            </div>
-        </div>
-    </div>
+<div class="container">
+<h2 class="section-title"><i class="fas fa-star"></i> Projet phare</h2>
+<div class="featured-project">
+<div class="project-info">
+<span class="project-tag">🛒 Retail · Cloud · BI</span>
+<h3>Retail Stock Intelligence</h3>
+<p class="project-description">API Cloud B2B de <strong>détection proactive des ruptures de stock</strong> + dashboard Power BI en temps réel.</p>
+<div class="project-features">
+<div class="feature"><i class="fas fa-exclamation-triangle"></i><div><strong>Perte de CA quantifiée</strong><span>Calculée en temps réel par rayon et par produit</span></div></div>
+<div class="feature"><i class="fas fa-bell"></i><div><strong>Alertes de réassort</strong><span>Actions concrètes : "Commander 66 unités de X avant 11h"</span></div></div>
+<div class="feature"><i class="fas fa-chart-pie"></i><div><strong>Dashboard "Tour de Contrôle"</strong><span>Le chef de magasin pilote sans Excel — en 2 min</span></div></div>
+<div class="feature"><i class="fas fa-code"></i><div><strong>Backend Python / FastAPI</strong><span>API sécurisée (auth par clé), hébergée sur Render</span></div></div>
+</div>
+<div class="project-stack">
+<span class="stack-badge">Python</span>
+<span class="stack-badge">FastAPI</span>
+<span class="stack-badge">Power BI</span>
+<span class="stack-badge">Render</span>
+<span class="stack-badge">GitHub</span>
+</div>
+<div class="project-buttons">
+<a href="https://retail-stock-api.onrender.com/docs" class="btn btn-primary" target="_blank"><i class="fas fa-play-circle"></i> Démo live (Swagger)</a>
+<a href="https://github.com/Loe23/retail-stock-api" class="btn btn-outline" target="_blank" style="color:#fff;border-color:#fff"><i class="fab fa-github"></i> Code source</a>
+</div>
+<p class="security-note"><i class="fas fa-lock"></i> Clé de démo disponible sur demande — <a href="mailto:loegnali@gmail.com">loegnali@gmail.com</a></p>
+</div>
+<div class="project-visual">
+<div class="dashboard-placeholder">
+<div class="dash-title"><i class="fas fa-server"></i> API Cloud — Endpoints live</div>
+<div class="dash-row"><span>GET</span><span>/v1/stock/overview</span></div>
+<div class="dash-row"><span>GET</span><span>/v1/stock/alerts</span></div>
+<div class="dash-row"><span>GET</span><span>/v1/stock/rupture-risk</span></div>
+<div class="dash-row dash-ok"><span>Status</span><span>🟢 En ligne 24/7</span></div>
+<div class="dash-row"><span>Auth</span><span>🔐 API Key</span></div>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ═══════════════════ RÉSULTATS ═══════════════════ -->
+<!-- RÉSULTATS -->
 <section id="resultats" class="section">
-    <div class="container">
-        <h2 class="section-title">
-            <i class="fas fa-chart-bar"></i> Résultats mesurables
-        </h2>
-        <p class="section-subtitle">
-            Des chiffres concrets. Pas de jargon. Des impacts business vérifiables.
-        </p>
-
-        <div class="results-grid">
-            <div class="result-card">
-                <div class="result-icon">⏱️</div>
-                <div class="result-value">-83%</div>
-                <div class="result-label">Temps de reporting</div>
-                <div class="result-detail">3h → 20 min (Malakoff Humanis)<br>2h → 20 min (Aliive)</div>
-            </div>
-            <div class="result-card">
-                <div class="result-icon">📈</div>
-                <div class="result-value">-50%</div>
-                <div class="result-label">Temps de production reportings</div>
-                <div class="result-detail">Orange Côte d'Ivoire — Excel VBA + gouvernance data</div>
-            </div>
-            <div class="result-card">
-                <div class="result-icon">🎯</div>
-                <div class="result-value">+245%</div>
-                <div class="result-label">ROI campagne marketing</div>
-                <div class="result-detail">Optimisation budget 5M€ — 8 canaux (Orange)</div>
-            </div>
-            <div class="result-card">
-                <div class="result-icon">🛍️</div>
-                <div class="result-value">100%</div>
-                <div class="result-label">Solutions en production</div>
-                <div class="result-detail">API Cloud + Dashboard Power BI utilisés au quotidien</div>
-            </div>
-            <div class="result-card">
-                <div class="result-icon">👥</div>
-                <div class="result-value">10+</div>
-                <div class="result-label">Utilisateurs formés</div>
-                <div class="result-detail">Power BI, ateliers Agile, conduite du changement</div>
-            </div>
-            <div class="result-card">
-                <div class="result-icon">🔍</div>
-                <div class="result-value">15</div>
-                <div class="result-label">KPIs stratégiques</div>
-                <div class="result-detail">Segmentation clients adoptée par les directions (Orange)</div>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<h2 class="section-title"><i class="fas fa-chart-bar"></i> Résultats mesurables</h2>
+<p class="section-subtitle">Des chiffres concrets. Pas de jargon. Des impacts business vérifiables.</p>
+<div class="results-grid">
+<div class="result-card"><div class="result-icon">⏱️</div><div class="result-value">-83%</div><div class="result-label">Temps de reporting</div><div class="result-detail">3h → 20 min (Malakoff Humanis)<br>2h → 20 min (Aliive)</div></div>
+<div class="result-card"><div class="result-icon">📈</div><div class="result-value">-50%</div><div class="result-label">Temps de production reportings</div><div class="result-detail">Orange Côte d'Ivoire — Excel VBA + gouvernance data</div></div>
+<div class="result-card"><div class="result-icon">🎯</div><div class="result-value">+245%</div><div class="result-label">ROI campagne marketing</div><div class="result-detail">Optimisation budget 5M€ — 8 canaux (Orange)</div></div>
+<div class="result-card"><div class="result-icon">🛍️</div><div class="result-value">100%</div><div class="result-label">Solutions en production</div><div class="result-detail">API Cloud + Dashboard Power BI utilisés au quotidien</div></div>
+<div class="result-card"><div class="result-icon">👥</div><div class="result-value">10+</div><div class="result-label">Utilisateurs formés</div><div class="result-detail">Power BI, ateliers Agile, conduite du changement</div></div>
+<div class="result-card"><div class="result-icon">🔍</div><div class="result-value">15</div><div class="result-label">KPIs stratégiques</div><div class="result-detail">Segmentation clients adoptée par les directions (Orange)</div></div>
+</div>
+</div>
 </section>
 
-<!-- ═══════════════════ AUTRES PROJETS ═══════════════════ -->
+<!-- AUTRES PROJETS -->
 <section id="projets" class="section section-gray">
-    <div class="container">
-        <h2 class="section-title">
-            <i class="fas fa-folder-open"></i> Autres projets
-        </h2>
-        <div class="projects-grid">
-
-            <div class="project-card">
-                <div class="card-header" style="background: #1a73e8;">
-                    <i class="fas fa-truck"></i>
-                </div>
-                <h4>Ecommerce Factory — Pipeline anti-rupture</h4>
-                <p>Automatisation complète de la détection des ruptures de stock 
-                   avec rapports HTML distribués aux équipes.</p>
-                <div class="card-stack">Airflow · Docker · PostgreSQL</div>
-                <a href="#" class="card-link">Voir le projet →</a>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header" style="background: #e8710a;">
-                    <i class="fas fa-bullhorn"></i>
-                </div>
-                <h4>Optimisation Marketing Orange</h4>
-                <p>Simulation de 2 000 campagnes pour maximiser le ROI sur un 
-                   budget de 5M€ réparti sur 8 canaux.</p>
-                <div class="card-stack">Python · Power BI · Analyse ROI</div>
-                <a href="#" class="card-link">Voir le projet →</a>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header" style="background: #34a853;">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h4>Audit RGPD — Canaux Marketing</h4>
-                <p>Audit et visualisation des canaux marketing conformes au RGPD 
-                   pour une grande enseigne (Carrefour).</p>
-                <div class="card-stack">BigQuery · SQL · Looker Studio</div>
-                <a href="#" class="card-link">Voir le projet →</a>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header" style="background: #9333ea;">
-                    <i class="fas fa-map-marked-alt"></i>
-                </div>
-                <h4>Analyse Géospatiale — Normandie</h4>
-                <p>Cartographie interactive de 707 arrêts de transport public 
-                   pour l'analyse territoriale.</p>
-                <div class="card-stack">Python · Folium · Jupyter</div>
-                <a href="#" class="card-link">Voir le projet →</a>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header" style="background: #dc2626;">
-                    <i class="fas fa-money-bill-wave"></i>
-                </div>
-                <h4>API Veille Transferts d'Argent</h4>
-                <p>Suivi des frais et taux de change pour les transferts 
-                   France → Côte d'Ivoire en temps réel.</p>
-                <div class="card-stack">FastAPI · Render · Data Analysis</div>
-                <a href="#" class="card-link">Voir le projet →</a>
-            </div>
-
-        </div>
-    </div>
+<div class="container">
+<h2 class="section-title"><i class="fas fa-folder-open"></i> Autres projets</h2>
+<div class="projects-grid">
+<div class="project-card">
+<div class="card-top" style="background:#1a73e8"></div>
+<h4>🚚 Ecommerce Factory — Pipeline anti-rupture</h4>
+<p>Automatisation complète de la détection des ruptures de stock avec rapports HTML distribués aux équipes.</p>
+<div class="card-stack">Airflow · Docker · PostgreSQL</div>
+</div>
+<div class="project-card">
+<div class="card-top" style="background:#e8710a"></div>
+<h4>📢 Optimisation Marketing Orange</h4>
+<p>Simulation de 2 000 campagnes pour maximiser le ROI sur un budget de 5M€ réparti sur 8 canaux.</p>
+<div class="card-stack">Python · Power BI · Analyse ROI</div>
+</div>
+<div class="project-card">
+<div class="card-top" style="background:#34a853"></div>
+<h4>🛡️ Audit RGPD — Canaux Marketing</h4>
+<p>Audit et visualisation des canaux marketing conformes au RGPD pour une grande enseigne retail.</p>
+<div class="card-stack">BigQuery · SQL · Looker Studio</div>
+</div>
+<div class="project-card">
+<div class="card-top" style="background:#9333ea"></div>
+<h4>🗺️ Analyse Géospatiale — Normandie</h4>
+<p>Cartographie interactive de 707 arrêts de transport public pour l'analyse territoriale.</p>
+<div class="card-stack">Python · Folium · Jupyter</div>
+</div>
+<div class="project-card">
+<div class="card-top" style="background:#dc2626"></div>
+<h4>💸 API Veille Transferts d'Argent</h4>
+<p>Suivi des frais et taux de change pour les transferts France → Côte d'Ivoire en temps réel.</p>
+<div class="card-stack">FastAPI · Render · Data Analysis</div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ═══════════════════ COMPÉTENCES ═══════════════════ -->
+<!-- COMPÉTENCES -->
 <section id="competences" class="section">
-    <div class="container">
-        <h2 class="section-title">
-            <i class="fas fa-cogs"></i> Compétences
-        </h2>
-
-        <div class="skills-columns">
-            <div class="skill-category">
-                <h3><i class="fas fa-chart-bar"></i> BI & Visualisation</h3>
-                <div class="skill-bar">
-                    <div class="skill-name">Power BI <span>Expert</span></div>
-                    <div class="bar"><div class="bar-fill" style="width:95%"></div></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-name">Looker Studio <span>Avancé</span></div>
-                    <div class="bar"><div class="bar-fill" style="width:80%"></div></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-name">Data Storytelling <span>Avancé</span></div>
-                    <div class="bar"><div class="bar-fill" style="width:85%"></div></div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3><i class="fas fa-database"></i> Data & SQL</h3>
-                <div class="skill-bar">
-                    <div class="skill-name">SQL <span>Expert</span></div>
-                    <div class="bar"><div class="bar-fill" style="width:95%"></div></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-name">Python (Pandas, FastAPI) <span>Avancé</span></div>
-                    <div class="bar"><div class="bar-fill" style="width:85%"></div></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-name">BigQuery / PostgreSQL <span>Avancé</span></div>
-                    <div class="bar"><div class="bar-fill" style="width:80%"></div></div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3><i class="fas fa-cloud"></i> Cloud & ETL</h3>
-                <div class="skill-bar">
-                    <div class="skill-name">Airflow / Docker <span>Intermédiaire+</span></div>
-                    <div class="bar"><div class="bar-fill" style="width:70%"></div></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-name">API REST (FastAPI) <span>Avancé</span></div>
-                    <div class="bar"><div class="bar-fill" style="width:80%"></div></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-name">Render / GitHub Actions <span>Intermédiaire+</span></div>
-                    <div class="bar"><div class="bar-fill" style="width:70%"></div></div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3><i class="fas fa-store"></i> Métier & Soft Skills</h3>
-                <div class="skill-bar">
-                    <div class="skill-name">Retail & Supply Chain <span>Expert</span></div>
-                    <div class="bar"><div class="bar-fill" style="width:95%"></div></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-name">AMOA / Traduction métier ↔ Data <span>Avancé</span></div>
-                    <div class="bar"><div class="bar-fill" style="width:85%"></div></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-name">Conduite du changement <span>Avancé</span></div>
-                    <div class="bar"><div class="bar-fill" style="width:80%"></div></div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<h2 class="section-title"><i class="fas fa-cogs"></i> Compétences</h2>
+<div class="skills-columns">
+<div class="skill-category">
+<h3><i class="fas fa-chart-bar"></i> BI & Visualisation</h3>
+<div class="skill-bar"><div class="skill-name">Power BI <span>Expert</span></div><div class="bar"><div class="bar-fill" data-width="95%"></div></div></div>
+<div class="skill-bar"><div class="skill-name">Looker Studio <span>Avancé</span></div><div class="bar"><div class="bar-fill" data-width="80%"></div></div></div>
+<div class="skill-bar"><div class="skill-name">Data Storytelling <span>Avancé</span></div><div class="bar"><div class="bar-fill" data-width="85%"></div></div></div>
+</div>
+<div class="skill-category">
+<h3><i class="fas fa-database"></i> Data & SQL</h3>
+<div class="skill-bar"><div class="skill-name">SQL <span>Expert</span></div><div class="bar"><div class="bar-fill" data-width="95%"></div></div></div>
+<div class="skill-bar"><div class="skill-name">Python (Pandas, FastAPI) <span>Avancé</span></div><div class="bar"><div class="bar-fill" data-width="85%"></div></div></div>
+<div class="skill-bar"><div class="skill-name">BigQuery / PostgreSQL <span>Avancé</span></div><div class="bar"><div class="bar-fill" data-width="80%"></div></div></div>
+</div>
+<div class="skill-category">
+<h3><i class="fas fa-cloud"></i> Cloud & ETL</h3>
+<div class="skill-bar"><div class="skill-name">Airflow / Docker <span>Intermédiaire+</span></div><div class="bar"><div class="bar-fill" data-width="70%"></div></div></div>
+<div class="skill-bar"><div class="skill-name">API REST (FastAPI) <span>Avancé</span></div><div class="bar"><div class="bar-fill" data-width="80%"></div></div></div>
+<div class="skill-bar"><div class="skill-name">Render / GitHub Actions <span>Intermédiaire+</span></div><div class="bar"><div class="bar-fill" data-width="70%"></div></div></div>
+</div>
+<div class="skill-category">
+<h3><i class="fas fa-store"></i> Métier & Soft Skills</h3>
+<div class="skill-bar"><div class="skill-name">Retail & Supply Chain <span>Expert</span></div><div class="bar"><div class="bar-fill" data-width="95%"></div></div></div>
+<div class="skill-bar"><div class="skill-name">AMOA / Traduction métier ↔ Data <span>Avancé</span></div><div class="bar"><div class="bar-fill" data-width="85%"></div></div></div>
+<div class="skill-bar"><div class="skill-name">Conduite du changement <span>Avancé</span></div><div class="bar"><div class="bar-fill" data-width="80%"></div></div></div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ═══════════════════ PARCOURS ═══════════════════ -->
+<!-- PARCOURS -->
 <section class="section section-dark">
-    <div class="container">
-        <h2 class="section-title">
-            <i class="fas fa-route"></i> Mon parcours
-        </h2>
-        <div class="timeline">
-
-            <div class="timeline-item">
-                <div class="timeline-date">2023 – 2024</div>
-                <div class="timeline-content">
-                    <h4>INSEEC — Master 2 Data Analytics, Manager Marketing</h4>
-                    <p>Modélisation prédictive, gouvernance des données (RGPD), Power BI, SQL, Python, Agile.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date">2022 – 2023</div>
-                <div class="timeline-content">
-                    <h4>ESG Finance — Master 1 Ingénierie Financière (Big Data)</h4>
-                    <p>Statistiques, économétrie, séries temporelles (R), Python, SAS, C++, SQL.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date">2018 – 2022</div>
-                <div class="timeline-content">
-                    <h4>Orange Côte d'Ivoire — Data Analyst</h4>
-                    <p>Pilotage performance sur des bases de millions de lignes. Segmentation clients, automatisation Excel VBA, gouvernance data.</p>
-                </div>
-            </div>
-
-            <!-- Ajoute Auchan en expérience terrain -->
-            <div class="timeline-item">
-                <div class="timeline-date">Expérience terrain</div>
-                <div class="timeline-content">
-                    <h4>Auchan — Grande Distribution</h4>
-                    <p>Stocks, réception, réassort, merchandising, caisses, Click & Collect, relation client.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
+<div class="container">
+<h2 class="section-title"><i class="fas fa-route"></i> Mon parcours</h2>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-date">Juin 2025 – Aujourd'hui</div>
+<div class="timeline-content">
+<h4>Consultant Data & BI — Freelance</h4>
+<p>Solutions data B2B : dashboards Power BI, API Cloud, pipelines ETL. Projet phare : Retail Stock Intelligence.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2024 – 2025</div>
+<div class="timeline-content">
+<h4>Aliive — Data Analyst BI</h4>
+<p>Dashboards Power BI de pilotage opérationnel. Reporting automatisé : 2h → 20 min.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2023 – 2024</div>
+<div class="timeline-content">
+<h4>Malakoff Humanis — Data Analyst BI</h4>
+<p>Référent Power BI. Reporting de conformité RGPD : 3h → 20 min. Formation de 10 utilisateurs.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2023 – 2024</div>
+<div class="timeline-content">
+<h4>INSEEC — Master 2 Data Analytics, Manager Marketing</h4>
+<p>Modélisation prédictive, gouvernance des données (RGPD), Power BI, SQL, Python, Agile.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2022 – 2023</div>
+<div class="timeline-content">
+<h4>ESG Finance — Master 1 Ingénierie Financière (Big Data)</h4>
+<p>Statistiques, économétrie, séries temporelles (R), Python, SAS, SQL.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2018 – 2022</div>
+<div class="timeline-content">
+<h4>Orange Côte d'Ivoire — Data Analyst</h4>
+<p>Pilotage performance sur des bases de millions de lignes. Segmentation clients, automatisation Excel VBA (-50%), gouvernance data.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<!-- CONTACT -->
 <section id="contact" class="section">
-    <div class="container">
-        <h2 class="section-title">
-            <i class="fas fa-handshake"></i> Parlons de votre projet data
-        </h2>
-        <p class="section-subtitle">
-            CDI ou freelance — Paris, Lyon, Lille, Nantes, Montpellier, Auvergne-Rhône-Alpes, remote.
-        </p>
-
-        <div class="contact-grid">
-            <a href="mailto:loegnali@gmail.com" class="contact-card">
-                <i class="fas fa-envelope"></i>
-                <span>Email</span>
-                <strong>loegnali@gmail.com</strong>
-            </a>
-            <a href="tel:+33765703905" class="contact-card">
-                <i class="fas fa-phone"></i>
-                <span>Téléphone</span>
-                <strong>07 65 70 39 05</strong>
-            </a>
-            <a href="https://www.linkedin.com/in/joel-gnali-loe" class="contact-card" target="_blank">
-                <i class="fab fa-linkedin"></i>
-                <span>LinkedIn</span>
-                <strong>Joël Gnali LOE</strong>
-            </a>
-            <a href="https://github.com/Loe23" class="contact-card" target="_blank">
-                <i class="fab fa-github"></i>
-                <span>GitHub</span>
-                <strong>Loe23</strong>
-            </a>
-        </div>
-
-        <div class="cta-final">
-            <p>Vous cherchez un Data Analyst qui comprend le terrain ?</p>
-            <a href="mailto:loegnali@gmail.com" class="btn btn-primary btn-large">
-                <i class="fas fa-paper-plane"></i> Écrivez-moi maintenant
-            </a>
-        </div>
-    </div>
+<div class="container">
+<h2 class="section-title"><i class="fas fa-handshake"></i> Parlons de votre projet data</h2>
+<p class="section-subtitle">CDI ou freelance — Paris, Lyon, Lille, Nantes, Montpellier, Auvergne-Rhône-Alpes, remote.</p>
+<div class="contact-grid">
+<a href="mailto:loegnali@gmail.com" class="contact-card"><i class="fas fa-envelope"></i><span>Email</span><strong>loegnali@gmail.com</strong></a>
+<a href="tel:+33765703905" class="contact-card"><i class="fas fa-phone"></i><span>Téléphone</span><strong>07 65 70 39 05</strong></a>
+<a href="https://www.linkedin.com/in/joel-gnali-loe" class="contact-card" target="_blank"><i class="fab fa-linkedin"></i><span>LinkedIn</span><strong>Joël Gnali LOE</strong></a>
+<a href="https://github.com/Loe23" class="contact-card" target="_blank"><i class="fab fa-github"></i><span>GitHub</span><strong>Loe23</strong></a>
+</div>
+<div class="cta-final">
+<p>Vous cherchez un Data Analyst orienté impact business ?</p>
+<a href="mailto:loegnali@gmail.com" class="btn btn-primary btn-large" style="background:#fff;color:var(--primary)"><i class="fas fa-paper-plane"></i> Écrivez-moi maintenant</a>
+</div>
+</div>
 </section>
 
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<!-- FOOTER -->
 <footer class="footer">
-    <p>© 2025 Joël Gnali LOE — Data Analyst Retail & Business Analyst</p>
-    <p>Conçu avec ❤️ et beaucoup de SQL</p>
+<p>© 2025 Joël Gnali LOE — Data Analyst Retail & Business Analyst</p>
+<p>Conçu avec ❤️ et beaucoup de SQL</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+// Animation des barres de compétences
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.querySelectorAll('.bar-fill').forEach(bar => {
+bar.style.width = bar.getAttribute('data-width');
+});
+observer.unobserve(entry.target);
+}
+});
+}, { threshold: 0.3 });
+document.querySelectorAll('.skills-columns').forEach(el => observer.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+});
+</script>
 </body>
 </html>
