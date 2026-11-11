@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Joël Gnali LOE — Data Analyst Retail & Business Analyst | Power BI, SQL, Python">
-<title>Joël Gnali LOE | Data Analyst Retail & Business Analyst</title>
+<meta name="description" content="Joël Gnali LOE — Consultant Data & Analytics Engineer | Power BI, BigQuery, SQL, Python">
+<title>Joël Gnali LOE | Consultant Data & Analytics Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-/* ═══════════ CSS INTÉGRÉ — AUCUN FICHIER EXTERNE REQUIS ═══════════ */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
 --primary:#2563eb;--primary-dark:#1d4ed8;--dark:#0f172a;--dark2:#1e293b;
@@ -21,7 +20,6 @@ a{text-decoration:none;color:inherit}
 img{max-width:100%;height:auto}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-/* NAVBAR */
 .navbar{position:fixed;top:0;width:100%;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.05)}
 .nav-brand{font-size:1.3rem;font-weight:800;color:var(--primary)}
 .nav-links{display:flex;list-style:none;gap:24px;align-items:center}
@@ -29,7 +27,6 @@ img{max-width:100%;height:auto}
 .nav-links a:hover{color:var(--primary)}
 .nav-cta{background:var(--primary)!important;color:#fff!important;padding:10px 24px!important;border-radius:50px!important;font-weight:600!important}
 
-/* HERO */
 .hero{padding:140px 40px 80px;background:linear-gradient(135deg,var(--gray) 0%,var(--white) 100%);min-height:100vh;display:flex;align-items:center}
 .hero-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);padding:8px 20px;border-radius:50px;font-size:.85rem;font-weight:500;color:var(--primary);box-shadow:var(--shadow);margin-bottom:24px}
@@ -56,7 +53,6 @@ img{max-width:100%;height:auto}
 .dash-ok{background:rgba(16,185,129,.2);border-left:4px solid #10b981}
 .dash-title{font-weight:700;font-size:1.1rem;margin-bottom:8px;color:#f59e0b}
 
-/* SECTIONS */
 .section{padding:100px 0}
 .section-dark{background:var(--dark);color:var(--white)}
 .section-gray{background:var(--gray)}
@@ -64,15 +60,13 @@ img{max-width:100%;height:auto}
 .section-dark .section-title{color:var(--white)}
 .section-subtitle{font-size:1.15rem;color:var(--text-light);margin-bottom:48px;max-width:600px}
 
-/* ABOUT */
 .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:60px;align-items:center}
 .about-lead{font-size:1.3rem;font-weight:600;color:var(--dark);margin-bottom:20px}
 .about-text p{margin-bottom:16px;font-size:1.05rem}
 .about-experience-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
 .exp-tag{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--gray);border-radius:50px;font-size:.9rem;font-weight:600;color:var(--primary)}
-.photo-placeholder{width:100%;aspect-ratio:1;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:#fff;font-size:5rem;font-weight:800;box-shadow:var(--shadow-hover)}
+.about-image img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow-hover)}
 
-/* PROJET PHARE */
 .featured-project{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .project-tag{display:inline-block;padding:6px 16px;background:rgba(255,255,255,.1);border-radius:50px;font-size:.85rem;font-weight:500;margin-bottom:16px}
 .featured-project h3{font-size:2.2rem;font-weight:800;margin-bottom:16px;color:var(--white)}
@@ -88,7 +82,6 @@ img{max-width:100%;height:auto}
 .security-note{font-size:.9rem;color:rgba(255,255,255,.5)}
 .security-note a{color:var(--accent);text-decoration:underline}
 
-/* RESULTATS */
 .results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .result-card{background:var(--white);padding:32px;border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;transition:transform .3s;border:1px solid rgba(0,0,0,.05)}
 .result-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
@@ -97,7 +90,6 @@ img{max-width:100%;height:auto}
 .result-label{font-size:1.05rem;font-weight:600;color:var(--dark);margin-bottom:8px}
 .result-detail{font-size:.9rem;color:var(--text-light)}
 
-/* PROJETS */
 .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .project-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s;display:flex;flex-direction:column}
 .project-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
@@ -106,7 +98,6 @@ img{max-width:100%;height:auto}
 .project-card p{padding:0 24px 16px;font-size:.95rem;color:var(--text-light);flex:1}
 .card-stack{padding:0 24px 16px;font-size:.85rem;font-weight:600;color:var(--primary)}
 
-/* COMPETENCES */
 .skills-columns{display:grid;grid-template-columns:repeat(2,1fr);gap:40px}
 .skill-category h3{font-size:1.25rem;font-weight:700;color:var(--dark);margin-bottom:24px;display:flex;align-items:center;gap:12px}
 .skill-category h3 i{color:var(--primary)}
@@ -116,7 +107,6 @@ img{max-width:100%;height:auto}
 .bar{height:8px;background:var(--gray);border-radius:50px;overflow:hidden}
 .bar-fill{height:100%;background:linear-gradient(90deg,var(--primary),#10b981);border-radius:50px;transition:width 1.2s ease;width:0}
 
-/* TIMELINE */
 .timeline{max-width:800px;margin:0 auto;position:relative;padding-left:40px}
 .timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:3px;background:rgba(255,255,255,.15)}
 .timeline-item{position:relative;margin-bottom:40px}
@@ -125,7 +115,6 @@ img{max-width:100%;height:auto}
 .timeline-content h4{font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:8px}
 .timeline-content p{color:rgba(255,255,255,.6);font-size:.95rem}
 
-/* CONTACT */
 .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:60px}
 .contact-card{display:flex;flex-direction:column;align-items:center;padding:32px 24px;background:var(--gray);border-radius:var(--radius);transition:all .3s;text-align:center}
 .contact-card:hover{background:var(--primary);color:#fff;transform:translateY(-4px)}
@@ -139,10 +128,8 @@ img{max-width:100%;height:auto}
 .cta-final p{font-size:1.4rem;font-weight:600;color:#fff;margin-bottom:24px}
 .cta-final .btn{background:#fff;color:var(--primary)}
 
-/* FOOTER */
 .footer{background:var(--dark);color:rgba(255,255,255,.5);text-align:center;padding:32px;font-size:.9rem}
 
-/* RESPONSIVE */
 @media(max-width:1024px){
 .hero h1{font-size:2.3rem}
 .results-grid,.projects-grid{grid-template-columns:repeat(2,1fr)}
@@ -162,7 +149,6 @@ img{max-width:100%;height:auto}
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar">
 <div class="nav-brand">Joël LOE</div>
 <ul class="nav-links">
@@ -176,15 +162,14 @@ img{max-width:100%;height:auto}
 </ul>
 </nav>
 
-<!-- HERO -->
 <section id="accueil" class="hero">
 <div class="hero-content">
 <div class="hero-text">
 <p class="hero-badge"><i class="fas fa-map-marker-alt"></i> Paris · CDI / Freelance · Remote</p>
-<h1>Je transforme les <span class="highlight">données</span><br>en <span class="highlight">décisions business</span>.</h1>
+<h1>Consultant Data &amp; <span class="highlight">Analytics Engineer</span></h1>
 <p class="hero-subtitle">
 <strong>6+ ans</strong> en Data (Orange · Malakoff Humanis · Aliive)<br>
-Je conçois des dashboards Power BI et des solutions cloud que les équipes <strong>utilisent vraiment</strong>.
+Je conçois des dashboards, pipelines et solutions data (Power BI, BigQuery, SQL, Python) que les équipes <strong>utilisent vraiment</strong>.
 </p>
 <div class="hero-buttons">
 <a href="#projet-phare" class="btn btn-primary"><i class="fas fa-rocket"></i> Voir mon projet phare</a>
@@ -197,7 +182,6 @@ Je conçois des dashboards Power BI et des solutions cloud que les équipes <str
 </div>
 </div>
 <div class="hero-visual">
-<!-- SIMULATION DASHBOARD (remplace par ton GIF quand prêt) -->
 <div class="dashboard-placeholder">
 <div class="dash-title"><i class="fas fa-chart-line"></i> Retail Stock Intelligence — Tour de contrôle</div>
 <div class="dash-row dash-alert"><span>⚠️ Coca-Cola 33cl</span><span>Rupture dans 2j · -205€/j</span></div>
@@ -210,30 +194,28 @@ Je conçois des dashboards Power BI et des solutions cloud que les équipes <str
 </div>
 </section>
 
-<!-- À PROPOS -->
 <section id="apropos" class="section">
 <div class="container">
 <h2 class="section-title">Qui suis-je ?</h2>
 <div class="about-grid">
 <div class="about-text">
-<p class="about-lead">Je m'appelle <strong>Joël Gnali LOE</strong>. Je parle le <strong>langage data</strong> et je comprends le <strong>langage magasin</strong>.</p>
-<p>Formé en Data Analytics (INSEEC MSc), j'ai développé une solide compréhension des enjeux opérationnels du retail — gestion des stocks, réassort, merchandising, flux magasin. C'est cette double lecture qui fait la différence : <em>un dashboard que personne n'ouvre ne vaut rien.</em></p>
-<p>Ma mission : concevoir des <strong>solutions data de bout en bout</strong> (SQL, Python, Power BI, API Cloud) qui répondent à des problèmes métier concrets — et que les équipes adoptent au quotidien.</p>
+<p class="about-lead">Je m'appelle <strong>Joël Gnali LOE</strong>. Consultant Data &amp; Analytics Engineer.</p>
+<p>Je conçois des solutions data de bout en bout (SQL, Python, Power BI, BigQuery, API Cloud) qui transforment des données volumineuses en outils de pilotage concrets et adoptés par les équipes.</p>
+<p>Mon différenciateur : une solide compréhension du terrain opérationnel (retail, stocks, performance commerciale) qui rend mes dashboards et pipelines réellement utiles.</p>
 <div class="about-experience-row">
-<div class="exp-tag"><i class="fas fa-shopping-cart"></i> Retail & GMS</div>
-<div class="exp-tag"><i class="fas fa-chart-line"></i> Performance</div>
-<div class="exp-tag"><i class="fas fa-database"></i> Data Engineering</div>
-<div class="exp-tag"><i class="fas fa-cloud"></i> Cloud & API</div>
+<div class="exp-tag"><i class="fas fa-chart-bar"></i> Power BI &amp; BI</div>
+<div class="exp-tag"><i class="fas fa-database"></i> SQL &amp; BigQuery</div>
+<div class="exp-tag"><i class="fas fa-cogs"></i> Pipelines &amp; ETL</div>
+<div class="exp-tag"><i class="fas fa-store"></i> Retail &amp; Performance</div>
 </div>
 </div>
 <div class="about-image">
-<div class="photo-placeholder">JL</div>
+<img src="images/photo.jpg" alt="Joël Gnali LOE - Consultant Data & Analytics Engineer">
 </div>
 </div>
 </div>
 </section>
 
-<!-- PROJET PHARE -->
 <section id="projet-phare" class="section section-dark">
 <div class="container">
 <h2 class="section-title"><i class="fas fa-star"></i> Projet phare</h2>
@@ -275,7 +257,6 @@ Je conçois des dashboards Power BI et des solutions cloud que les équipes <str
 </div>
 </section>
 
-<!-- RÉSULTATS -->
 <section id="resultats" class="section">
 <div class="container">
 <h2 class="section-title"><i class="fas fa-chart-bar"></i> Résultats mesurables</h2>
@@ -291,7 +272,6 @@ Je conçois des dashboards Power BI et des solutions cloud que les équipes <str
 </div>
 </section>
 
-<!-- AUTRES PROJETS -->
 <section id="projets" class="section section-gray">
 <div class="container">
 <h2 class="section-title"><i class="fas fa-folder-open"></i> Autres projets</h2>
@@ -330,7 +310,6 @@ Je conçois des dashboards Power BI et des solutions cloud que les équipes <str
 </div>
 </section>
 
-<!-- COMPÉTENCES -->
 <section id="competences" class="section">
 <div class="container">
 <h2 class="section-title"><i class="fas fa-cogs"></i> Compétences</h2>
@@ -354,16 +333,15 @@ Je conçois des dashboards Power BI et des solutions cloud que les équipes <str
 <div class="skill-bar"><div class="skill-name">Render / GitHub Actions <span>Intermédiaire+</span></div><div class="bar"><div class="bar-fill" data-width="70%"></div></div></div>
 </div>
 <div class="skill-category">
-<h3><i class="fas fa-store"></i> Métier & Soft Skills</h3>
-<div class="skill-bar"><div class="skill-name">Retail & Supply Chain <span>Expert</span></div><div class="bar"><div class="bar-fill" data-width="95%"></div></div></div>
+<h3><i class="fas fa-handshake"></i> Métier & Soft Skills</h3>
+<div class="skill-bar"><div class="skill-name">Analytics Engineering <span>Avancé</span></div><div class="bar"><div class="bar-fill" data-width="80%"></div></div></div>
 <div class="skill-bar"><div class="skill-name">AMOA / Traduction métier ↔ Data <span>Avancé</span></div><div class="bar"><div class="bar-fill" data-width="85%"></div></div></div>
-<div class="skill-bar"><div class="skill-name">Conduite du changement <span>Avancé</span></div><div class="bar"><div class="bar-fill" data-width="80%"></div></div></div>
+<div class="skill-bar"><div class="skill-name">Retail & Supply Chain <span>Expert</span></div><div class="bar"><div class="bar-fill" data-width="90%"></div></div></div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- PARCOURS -->
 <section class="section section-dark">
 <div class="container">
 <h2 class="section-title"><i class="fas fa-route"></i> Mon parcours</h2>
@@ -371,7 +349,7 @@ Je conçois des dashboards Power BI et des solutions cloud que les équipes <str
 <div class="timeline-item">
 <div class="timeline-date">Juin 2025 – Aujourd'hui</div>
 <div class="timeline-content">
-<h4>Consultant Data & BI — Freelance</h4>
+<h4>Consultant Data & Analytics Engineer — Freelance</h4>
 <p>Solutions data B2B : dashboards Power BI, API Cloud, pipelines ETL. Projet phare : Retail Stock Intelligence.</p>
 </div>
 </div>
@@ -414,7 +392,6 @@ Je conçois des dashboards Power BI et des solutions cloud que les équipes <str
 </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="section">
 <div class="container">
 <h2 class="section-title"><i class="fas fa-handshake"></i> Parlons de votre projet data</h2>
@@ -426,20 +403,18 @@ Je conçois des dashboards Power BI et des solutions cloud que les équipes <str
 <a href="https://github.com/Loe23" class="contact-card" target="_blank"><i class="fab fa-github"></i><span>GitHub</span><strong>Loe23</strong></a>
 </div>
 <div class="cta-final">
-<p>Vous cherchez un Data Analyst orienté impact business ?</p>
+<p>Vous cherchez un Consultant Data &amp; Analytics Engineer ?</p>
 <a href="mailto:loegnali@gmail.com" class="btn btn-primary btn-large" style="background:#fff;color:var(--primary)"><i class="fas fa-paper-plane"></i> Écrivez-moi maintenant</a>
 </div>
 </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
-<p>© 2025 Joël Gnali LOE — Data Analyst Retail & Business Analyst</p>
-<p>Conçu avec ❤️ et beaucoup de SQL</p>
+<p>© 2025 Joël Gnali LOE — Consultant Data &amp; Analytics Engineer</p>
+<p>Power BI · BigQuery · SQL · Python</p>
 </footer>
 
 <script>
-// Animation des barres de compétences
 const observer = new IntersectionObserver((entries) => {
 entries.forEach(entry => {
 if (entry.isIntersecting) {
@@ -452,7 +427,6 @@ observer.unobserve(entry.target);
 }, { threshold: 0.3 });
 document.querySelectorAll('.skills-columns').forEach(el => observer.observe(el));
 
-// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 anchor.addEventListener('click', function(e) {
 e.preventDefault();
